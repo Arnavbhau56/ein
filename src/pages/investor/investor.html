@@ -1,0 +1,14 @@
+<section class="investors">
+  <h2 class="investors-title">Previous Investors</h2>
+  <div *ngIf="loading" class="investors-loading">Loading investors...</div>
+  <div *ngIf="error" class="investors-error">{{ error }}</div>
+  <div class="investors-list" *ngIf="!loading && !error">
+    <div class="investor-card" *ngFor="let investor of investors">
+      <img [src]="investor.image" [alt]="investor.name" class="investor-image" />
+      <div class="investor-content">
+        <div class="investor-name">{{ investor.name }}</div>
+        <div class="investor-position">{{ investor.position }}</div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+<div class="perks">
+  <!-- Title -->
+<h2 class="perks-title">What Selected Startups Will <span class="highlight">Unlock</span></h2>
+<p class="perks-desc">Comprehensive support system designed to accelerate your startup journey</p>
+
+<!-- Loading/Error States -->
+<div *ngIf="loading" class="perks-loading">Loading perks...</div>
+<div *ngIf="error" class="perks-error">{{ error }}</div>
+
+<!-- Perks List -->
+<div class="perks-list">
+  <div class="perk-card" *ngFor="let perk of perks">
+    <img *ngIf="perk.image" [src]="perk.image" alt="perk image" class="perk-image" />
+    <div class="perk-content">
+      <div class="perk-title">{{ perk.title }}</div>
+      <div class="perk-description">{{ perk.description }}</div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,483 @@
+/* Remove dark/blurred background overlays */
+.register-root::before,
+.register-root::after {
+  display: none !important;
+}
+
+body, .register-root {
+  font-family: sans-serif;
+  background: #f5f7fa;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #111827;
+}
+
+.star{
+  color: red !important;
+}
+
+.register-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 550px;
+  width: 100%;
+  margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  color: #111827;
+  border: 2px solid #e5e7eb;
+  position: relative;
+  z-index: 10;
+}
+
+.progress-container {
+  margin-bottom: 1.3rem;
+  flex-shrink: 0;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  border: 2px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.progress-step.active .step-number {
+  background: #10b981;
+  border-color: #10b981;
+  color: #fff;
+}
+
+.progress-step.completed .step-number {
+  background: #10b981;
+  border-color: #10b981;
+  color: #fff;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.progress-step.active .step-label {
+  color: #10b981;
+}
+
+.progress-step.completed .step-label {
+  color: #10b981;
+}
+
+.progress-line {
+  flex: 1;
+  height: 2px;
+  background: #d1d5db;
+  margin: 0 1rem;
+  transition: background 0.3s ease;
+}
+
+.progress-line.completed {
+  background: #10b981;
+}
+
+.star {
+  color: #e11d48;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  flex: 1;
+  padding: 0.5rem 0 0 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.input-group label {
+  color: #374151;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: sans-serif;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  background: #f5f7fa;
+  color: #111827;
+  font-size: 1rem;
+  font-family: sans-serif;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border: 1.5px solid #10b981;
+}
+
+.input-group input:disabled,
+.input-group select:disabled,
+.input-group textarea:disabled {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.input-row {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.input-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* OTP Input Styles */
+.otp-container, .otp-group .otp-boxes {
+  display: flex;
+  width: 65%;
+  flex-direction: row;
+  gap: 0.7rem;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0.5rem 0;
+  margin: auto;
+}
+
+.otp-input {
+  width: 44px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  background: #f5f7fa;
+  color: #111827;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px 0 #001A3C11;
+}
+
+.otp-input:focus {
+  border: 2px solid #10b981;
+  background: #fff;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.7rem 2.2rem;
+  background: #10b981;
+  border: none;
+  border-radius: 8px;
+  font-family: sans-serif;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 #10b98111;
+  width: auto;
+  margin-top: 1.2rem;
+}
+
+.send-otp-btn {
+  margin-top: 0;
+  min-width: 120px;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.98rem;
+  flex-shrink: 0;
+  background: #10b981;
+}
+
+.btn:hover {
+  background: #059669;
+}
+
+.btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-shrink: 0;
+  margin-top: 1.2rem;
+}
+
+.prev-btn {
+  background: #6b7280;
+  color: #fff;
+}
+
+.prev-btn:hover {
+  background: #374151;
+}
+
+.next-btn,
+.submit-btn {
+  background: #10b981;
+}
+
+.next-btn:hover,
+.submit-btn:hover {
+  background: #059669;
+}
+
+/* Accent colors for buttons and progress bar */
+.btn, .next-btn, .submit-btn {
+  background: #10b981;
+  color: #fff;
+}
+.send-otp-btn {
+  background: #10b981;
+  color: #fff;
+}
+.btn:hover, .next-btn:hover, .submit-btn:hover {
+  background: #059669;
+}
+.prev-btn {
+  background: #6b7280;
+}
+.prev-btn:hover {
+  background: #374151;
+}
+
+/* Progress bar accent colors */
+.progress-step.active .step-number {
+  background: #10b981;
+  border-color: #10b981;
+  color: #fff;
+}
+.progress-step.completed .step-number {
+  background: #10b981;
+  border-color: #10b981;
+  color: #fff;
+}
+.progress-step.active .step-label {
+  color: #10b981;
+}
+.progress-step.completed .step-label {
+  color: #10b981;
+}
+.progress-line.completed {
+  background: #10b981;
+}
+
+/* Inputs and labels */
+.input-group label {
+  color: #374151;
+  font-family: sans-serif;
+}
+.input-group input,
+.input-group select,
+.input-group textarea {
+  font-family: sans-serif;
+  color: #111827;
+  background: #f5f7fa;
+  border: 1.5px solid #e5e7eb;
+}
+
+/* Ensure all text is white by default, except for input fields */
+.register-card, .register-card * {
+  color: #111827;
+  font-family: sans-serif;
+}
+.input-group input,
+.input-group select,
+.input-group textarea {
+  color: #111827;
+  background: #f5f7fa;
+}
+
+/* Fix z-index for overlay */
+.register-card {
+  z-index: 2;
+}
+
+.register-heading {
+  margin: 32px;
+  font-size: 3.4rem;
+  letter-spacing: -1px;
+  font-weight: 800;
+  color: #111827;
+  font-family: sans-serif;
+  z-index: 20;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .register-heading {
+    position: static;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem 0.5rem;
+    left: 0;
+    top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .register-card {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+    border-radius: 10px;
+  }
+  .otp-container, .otp-group .otp-boxes {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  gap: 0.1rem;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0.5rem 0;
+  margin: auto;
+}
+  .otp-input {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .register-card {
+    padding: 0.5rem 0.4rem;
+    max-width: 87vw;
+    border-radius: 6px;
+  }
+  .otp-input {
+    width: 40px;
+    height: 50px;
+    font-size: 0.5rem;
+  }
+}
+
+/* Country code dropdown: show only 5 at a time with scroll */
+.custom-select-wrapper {
+  position: relative;
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px; /* ~5 items, adjust as needed */
+  overflow-y: auto;
+  background: #fff;
+  border: 1.5px solid #10b981;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08);
+  z-index: 100;
+  margin-top: 2px;
+  padding: 0;
+  list-style: none;
+}
+
+.custom-select-dropdown li {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1rem;
+  color: #111827;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.custom-select-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.custom-select-dropdown li:hover, .custom-select-dropdown li:focus {
+  background: #10b981;
+  color: #fff;
+}
+
+/* Style the input to look like a select */
+.custom-select-wrapper input[type="text"] {
+  cursor: pointer;
+  background: #f5f7fa;
+  border: 1.5px solid #10b981;
+  border-radius: 10px 10px 0 0;
+  transition: border 0.2s;
+}
+.custom-select-wrapper input[type="text"]:focus {
+  border: 1.5px solid #10b981;
+  background: #fff;
+}
+
+/* Improve select option appearance globally */
+.input-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #f5f7fa url('data:image/svg+xml;utf8,<svg fill="%2310b981" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 7.293a1 1 0 011.414 0L10 8.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"/></svg>') no-repeat right 1rem center/1.2em auto;
+  padding-right: 2.5rem;
+  border: 1.5px solid #10b981;
+  color: #111827;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: border 0.2s;
+}
+.input-group select:focus {
+  border: 1.5px solid #10b981;
+  background: #fff;
+}
+.input-group select option {
+  background: #fff;
+  color: #111827;
+  font-size: 1rem;
+  padding: 0.7rem 1rem;
+}

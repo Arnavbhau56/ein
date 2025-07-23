@@ -1,0 +1,66 @@
+<div class="host">
+<!-- Background overlay for blur and opacity -->
+<div class="main-bg"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" [class.scrolled]="scrolled">
+  <div class="navbar-content">
+    <div class="navbar-left">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+    </div>
+    <div class="navbar-right" [class.open]="menuOpen">
+      <ul class="nav-links" [class.mobile]="isMobileView" [class.open]="menuOpen">
+        <li *ngFor="let link of navLinks" (click)="closeMenuOnNavClick()">
+          <a href="#{{link.id}}" [ngClass]="{'apply-btn': link.isButton}" (click)="onNavLinkClick(link); $event.preventDefault();">{{link.label}}</a>
+        </li>
+      </ul>
+      <button class="hamburger" (click)="toggleMenu()" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'">
+        <span [class.open]="menuOpen"></span>
+        <span [class.open]="menuOpen"></span>
+        <span [class.open]="menuOpen"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+  <img src="assets/seedstars.png" alt="Seedstar" class="main-logo" />
+  <h1 class="main-title">FROM MVP TO <span class="highlight">MONEY</span></h1>
+  <p class="main-desc">
+    A 4-month cohort where India's top VCs mentor and fund the best early-stage startups. IIT Bombay and Non-IITB tracks. Limited seats. Curated funding access
+  </p>
+  <button class="apply-btn main-apply" (click)="onApplyNow()">APPLY NOW</button>
+</main>
+
+<!-- DOWN ARROW -->
+<div class="down-arrow" (click)="scrollToAboutUs()">
+  <img src="assets/down.png" alt="Scroll Down" />
+</div>
+</div>
+
+
+<div id="ABOUT US">
+<app-about></app-about>
+</div>
+
+<!-- <div id="BENEFITS">
+  <app-perks></app-perks>
+</div> -->
+
+
+<div id="TIMELINE">
+  <app-timeline></app-timeline>
+</div>
+
+<!-- <div id="PREVIOUS">
+  <app-investor></app-investor>
+</div> -->
+
+<div id="FAQ">
+  <app-faq></app-faq>
+</div>
+
+<div id="CONTACT">
+  <app-contact></app-contact>
+</div>
