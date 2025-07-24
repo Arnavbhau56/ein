@@ -1,6 +1,6 @@
 .faq {
   background: #f9fafb;
-  font-family: Sans-Serif, Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   padding: 2.5rem 1.5rem 2rem 1.5rem;
 }
 
@@ -11,16 +11,16 @@
 }
 
 .faq-title {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
   color: #111827;
   letter-spacing: 1px;
-  font-family: inherit;
 }
 
 .faq-title .highlight {
-  color: #10b981;
+  color: var(--primary-green);
   background: none;
   padding: 0;
   border-radius: 0;
@@ -103,7 +103,7 @@
 
 .faq-loading, .faq-error {
   text-align: center;
-  color: #10b981;
+  color: var(--primary-green);
   font-size: 1.1rem;
   margin: 2rem 0;
 }
@@ -116,6 +116,8 @@
   .faq-title {
     font-size: 1.5rem;
     font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
   }
   .faq-desc {
   color: #374151;

@@ -3,7 +3,7 @@
 }
 
 .about-section {
-  font-family: 'Sans-Serif', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   padding: 2.5rem 1.5rem 2rem 1.5rem;
   max-width: 1000px;
   margin: 0rem auto 0rem auto;
@@ -11,6 +11,7 @@
 }
 
 .about-title {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
@@ -40,7 +41,7 @@
   border-radius: 1.2rem;
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
   padding: 1.5rem 2rem 1.5rem 1.4rem;
-  width: 270px;
+  width: 290px;
   margin-bottom: 1rem;
   transition: none;
 }
@@ -60,9 +61,9 @@
 }
 
 .stat-number {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #10b981;
+  color: var(--primary-green);
   margin-bottom: 0.2rem;
   font-family: inherit;
   line-height: 1.1;
@@ -75,12 +76,12 @@
   font-weight: 500;
 }
 
-.highlight{
-  color: #10b981;
+.highlight {
+  color: var(--primary-green);
 }
 
 .stat-plus {
-  color: #10b981;
+  color: var(--primary-green);
   font-size: 2.2rem;
   font-weight: 700;
   margin-left: 0.1em;
@@ -160,8 +161,8 @@
 .track-check-svg svg {
   width: 22px;
   height: 22px;
-  color: #10b981;
-  stroke: #10b981;
+  color: var(--primary-green);
+  stroke: var(--primary-green);
   flex-shrink: 0;
 }
 
@@ -187,6 +188,8 @@
   .about-title {
     font-size: 1.5rem;
     font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
   }
   .about-stats {
     flex-direction: column;

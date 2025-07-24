@@ -1,5 +1,5 @@
 .contacts {
-  font-family: 'Sans-Serif', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   padding: 2.5rem 1.5rem 2rem 1.5rem;
   margin: 0rem auto 0rem auto;
   text-align: center;
@@ -7,11 +7,16 @@
 }
 
 .contacts-title {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
   color: #111827;
   letter-spacing: 1px;
+}
+
+.highlight {
+  color: var(--primary-green);
 }
 
 .contacts-list {
@@ -40,7 +45,7 @@
 
 .contact-card:hover {
   box-shadow: 0 10px 40px rgba(0,0,0,0.10);
-  border-color: #10b981;
+  border-color: var(--primary-green);
 }
 
 .contact-image {
@@ -84,7 +89,7 @@
 }
 
 .contact-icons a {
-  color: #10b981;
+  color: var(--primary-green);
   transition: color 0.2s;
 }
 
@@ -100,8 +105,10 @@
 
 @media (max-width: 700px) {
   .contacts-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
   }
   .contacts-list {
     width: 100%;

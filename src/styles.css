@@ -1,5 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-green: #0cb300;
+}
 *{
     margin: 0;
     padding: 0;
+}
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+}
+.accent-green {
+  color: var(--primary-green) !important;
+}
+.bg-green {
+  background-color: var(--primary-green) !important;
+}
+h1, h2, h3, h4, .main-title, .about-title, .faq-title, .timeline-title, .perks-title, .contacts-title, .investors-title, .register-heading {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 700px) {
+  h1, h2, h3, h4, .main-title, .about-title, .faq-title, .timeline-title, .perks-title, .contacts-title, .investors-title, .register-heading {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-green) transparent;
 }

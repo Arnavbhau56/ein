@@ -1,7 +1,7 @@
 :host {
     --color: white;
-    --quick-link-color: #10b981;
-    font-family: sans-serif;
+    --quick-link-color: var(--primary-green);
+    font-family: 'Poppins', Arial, sans-serif;
   }
   h2,
   h3,
@@ -60,7 +60,7 @@
     span {
       font-weight: 700;
       font-size: 1.5em;
-      font-family: sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
     }
   }
 
@@ -68,7 +68,7 @@
     margin-top: 10px;
     font-weight: 400;
     font-size: 1em;
-    font-family: sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     
   }
   
@@ -84,7 +84,7 @@
   
   .row-3 a p {
     margin: 5px auto;
-    color: #10b981;
+    color: var(--primary-green);
   }
 
   ul.socials {
@@ -130,7 +130,7 @@
   }
 
   .socials fa-icon {
-    color: #10b981;
+    color: var(--primary-green);
   }
   
   @media only screen and (max-width: 1000px) {

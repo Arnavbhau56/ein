@@ -1,10 +1,10 @@
 .timeline {
   background: #f9fafb;
-  font-family: 'Sans-Serif', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 .timeline-section {
-  font-family: 'Sans-Serif', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   padding: 2.5rem 1.5rem 2rem 1.5rem;
   max-width: 1000px;
   margin: 0rem auto 0rem auto;
@@ -12,12 +12,12 @@
 }
 
 .timeline-title {
+  font-family: 'Poppins', Arial, sans-serif;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
   color: #111827;
   letter-spacing: 1px;
-  font-family: inherit;
 }
 
 .timeline-desc {
@@ -29,7 +29,7 @@
 }
 
 .highlight {
-  color: #10b981;
+  color: var(--primary-green);
 }
 
 @media (max-width: 700px) {
@@ -40,6 +40,8 @@
   .timeline-title {
     font-size: 1.5rem;
     font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
   }
   .timeline-desc {
   color: #374151;
@@ -118,7 +120,7 @@
 }
 
 .inverted-steps-pane p {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   -ms-transform: skewX(15deg);
   /* IE 9 */
   -webkit-transform: skewX(15deg);
@@ -127,7 +129,7 @@
   /* Standard syntax */
   -moz-transform: skewX(15deg);
   transform: skewX(15deg);
-  padding: 24px 10px 10px 16px;
+  padding: 22px 10px 10px 16px;
   color: #374151;
   font-family: inherit;
 }
@@ -138,7 +140,7 @@
 .steps-four h3,
 .steps-five h3 {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 9px;
   font-family: inherit;
   font-size: 1.3rem;
   margin-right: 2px;
@@ -147,7 +149,7 @@
 
 @media(min-width: 900px) {
   .steps-timeline {
-    border-top: 5px double #10b981;
+    border-top: 5px double var(--primary-green);
     padding-top: 35px;
     margin-top: 40px;
     margin-left: 3%;
@@ -168,7 +170,7 @@
     border-radius: 50%;
     background: transparent;
     margin-left: 39%;
-    border: 2px solid #10b981;
+    border: 2px solid var(--primary-green);
   }
   .verticle-line {
     position: absolute;
@@ -182,7 +184,7 @@
     width: 25px;
     margin: 11px 10.1px;
     border-radius: 50%;
-    background: #10b981;
+    background: var(--primary-green);
   }
   .end-circle {
     height: 15px;
@@ -207,7 +209,7 @@
     width: 50%;
   }
   .steps-timeline {
-    border-left: 5px double #10b981;
+    border-left: 5px double var(--primary-green);
     margin-left: 35px;
   }
   .steps-one,
@@ -223,7 +225,7 @@
     float: left;
   }
   .steps-timeline {
-    border-left: 2px solid #10b981;
+    border-left: 2px solid var(--primary-green);
     margin-left: 30px;
   }
   .pane-warp {
@@ -244,7 +246,7 @@
     width: 25px;
     margin: 11px 10px;
     border-radius: 50%;
-    background: #10b981;
+    background: var(--primary-green);
   }
   .step-wrap {
     height: 50px;
@@ -253,7 +255,7 @@
     background: transparent;
     margin-top: 125px;
     margin-left: -2px;
-    border: 2px solid #10b981;
+    border: 2px solid var(--primary-green);
   }
   .end-circle {
     height: 15px;
@@ -286,7 +288,7 @@
 }
 
 .back-orange {
-  background: #10b981;
+  background: var(--primary-green);
 }
 
 .back-blue {
