@@ -9,8 +9,8 @@
 
 <!-- Perks List -->
 <div class="perks-list">
-  <div class="perk-card" *ngFor="let perk of perks">
-    <img *ngIf="perk.image" [src]="perk.image" alt="perk image" class="perk-image" />
+  <div class="perk-card" *ngFor="let perk of perks" data-aos="flip-left">
+    <img *ngIf="perk.image" [src]="perk.image" alt="perk image" class="perk-image"/>
     <div class="perk-content">
       <div class="perk-title">{{ perk.title }}</div>
       <div class="perk-description">{{ perk.description }}</div>

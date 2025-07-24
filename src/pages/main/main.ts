@@ -22,9 +22,9 @@ export class Main {
 
   navLinks = [
     { label: 'ABOUT US', id: 'ABOUT US' },
-    // { label: 'BENEFITS', id: 'BENEFITS' },
+    { label: 'BENEFITS', id: 'BENEFITS' },
     { label: 'TIMELINE', id: 'TIMELINE' },
-    // { label: 'PREVIOUS INVESTORS', id: 'PREVIOUS' },
+    { label: 'PREVIOUS INVESTORS', id: 'PREVIOUS' },
     { label: 'FAQ', id: 'FAQ' },
     { label: 'CONTACT US', id: 'CONTACT' },
     { label: 'APPLY NOW', id: 'APPLY', isButton: true }

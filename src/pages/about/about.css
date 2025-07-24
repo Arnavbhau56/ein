@@ -40,7 +40,7 @@
   background: #fff;
   border-radius: 1.2rem;
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  padding: 1.5rem 2rem 1.5rem 1.4rem;
+  padding: 1.5rem 1.4rem 1.5rem 1rem;
   width: 290px;
   margin-bottom: 1rem;
   transition: none;
@@ -230,8 +230,23 @@
 }
 
 @media (max-width: 500px) {
+
+  .stat-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 1.5rem 0.4rem 1.5rem 0.4rem;
+  width: 270px;
+}
+
+  .about{
+     padding: 1.4rem 1rem 0rem 1rem;
+  }
+
   .track-card {
-    max-width: 250px;
+    max-width: 215px;
     width: 95vw;
   }
 }

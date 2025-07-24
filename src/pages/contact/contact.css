@@ -1,6 +1,6 @@
 .contacts {
   font-family: 'Poppins', Arial, sans-serif;
-  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  padding: 2rem 1.5rem 2rem 1.5rem;
   margin: 0rem auto 0rem auto;
   text-align: center;
   background: #fff;
@@ -10,7 +10,7 @@
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0rem;
   color: #111827;
   letter-spacing: 1px;
 }
@@ -26,7 +26,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 }
 
 .contact-card {
@@ -78,7 +78,7 @@
   color: #374151;
   font-size: 0.9rem;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1;
 }
 
 .contact-icons {
@@ -112,10 +112,9 @@
   }
   .contacts-list {
     width: 100%;
-    gap: 0.5rem;
+    gap: 1.2rem;
   }
   .contact-card {
-    width: 90vw;
     min-width: 0;
   }
 }
