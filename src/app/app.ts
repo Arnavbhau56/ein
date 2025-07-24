@@ -14,12 +14,18 @@ export class App implements AfterViewInit {
   protected title = 'seedstars';
 
   ngAfterViewInit() {
+    console.log('AOS: About to initialize');
     AOS.init({
       duration: 700,
       once: false,
       easing: 'ease-in-out',
     });
+    console.log('AOS: Initialized');
 
-    setTimeout(() => AOS.refresh(), 1000);
+    setTimeout(() => {
+      console.log('AOS: About to refresh');
+      AOS.refresh();
+      console.log('AOS: Refreshed');
+    }, 1000);
   }
 }
