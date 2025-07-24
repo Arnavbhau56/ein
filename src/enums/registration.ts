@@ -6,7 +6,7 @@ export type StartupStageOption = {
 
 export const STARTUP_STAGE_OPTIONS: StartupStageOption[] = [
   { value: 'private', viewValue: 'Private Limited Company' },
-  { value: 'public', viewValue: 'Private Limited Company' },
+  { value: 'public', viewValue: 'Public Limited Company' },
   { value: 'partnerships', viewValue: 'Partnerships Company' },
   { value: 'limited', viewValue: 'Limited Liability Partnership' },
   { value: 'one', viewValue: 'One Person Company' },
