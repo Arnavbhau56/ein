@@ -111,6 +111,19 @@
         <input type="url" id="linkedin" [(ngModel)]="formData.linkedin_url" name="linkedin" required />
       </div>
     </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="track">Track <span class="star">*</span></label>
+        <select id="track" [(ngModel)]="formData.track" name="track" required (change)="onTrackChange()">
+          <option value="">Select Track</option>
+          <option value="iit_bombay">IIT Bombay</option>
+          <option value="non_iit_bombay">Non IIT Bombay Track</option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="formData.track === 'iit_bombay'" class="iit-bombay-message">
+      Please fill details for IIT Bombay founder
+    </div>
     <div class="form-actions">
       <button class="btn prev-btn" type="button" (click)="previousPage()">Previous</button>
       <button class="btn next-btn" type="button" (click)="nextPage()">Next</button>

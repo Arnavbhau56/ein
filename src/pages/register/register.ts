@@ -51,6 +51,7 @@ export class Register implements OnInit {
     startup_stage: '', 
     startup_website: '',
     pitchdeck: '',
+    track: '',
   };
 
   genderOptions = GENDER_OPTIONS;
@@ -276,7 +277,8 @@ export class Register implements OnInit {
       { key: 'country_code', label: 'Country Code' },
       { key: 'contact_number', label: 'Contact Number' },
       { key: 'country', label: 'Country' },
-      { key: 'linkedin_url', label: 'LinkedIn URL' }
+      { key: 'linkedin_url', label: 'LinkedIn URL' },
+      { key: 'track', label: 'Track' }
     ];
     const missingFields = requiredFields.filter(f => !this.formData[f.key]).map(f => f.label);
     if (missingFields.length > 0) {
@@ -517,5 +519,26 @@ export class Register implements OnInit {
   isValidWebsiteUrl(url: string): boolean {
     const urlPattern = /^https?:\/\/.+/i;
     return urlPattern.test(url);
+  }
+
+  // Add a method to handle track change
+  onTrackChange() {
+    if (this.formData.track === 'iit_bombay') {
+      Swal.fire({
+        icon: 'info',
+        title: 'IIT Bombay Track',
+        text: 'Please fill details for IIT Bombay founder',
+        background: 'rgb(17, 24, 39)',
+        color: '#fff',
+        customClass: {
+          popup: 'swal2-sans-serif',
+          title: 'swal2-sans-serif',
+          htmlContainer: 'swal2-sans-serif',
+          confirmButton: 'swal2-sans-serif',
+          cancelButton: 'swal2-sans-serif',
+          actions: 'swal2-sans-serif'
+        }
+      });
+    }
   }
 }
