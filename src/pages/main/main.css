@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   top: 0;
-  background: #000 url('../../../public/assets/bg_final.jpeg') center center / cover no-repeat;
+  background: #222 center center / cover no-repeat;
   filter: blur(8px);
   opacity: 1;
   z-index: 0;
@@ -29,7 +29,7 @@
   height: 100vh;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.75); 
+  background: #222; 
   z-index: 1;
   pointer-events: none;
   transform: scale(1.05);
@@ -45,7 +45,8 @@
   background: #fff;
   background: transparent;
   transition: background 0.3s;
-  font-family: inherit;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
 }
 .navbar.scrolled {
   background: #fff;
@@ -79,7 +80,7 @@
   padding: 0;
 }
 .nav-links li a {
-  color: #dbdada;
+  color: #fff;
   transition: color 0.2s;
   text-decoration: none;
 }
@@ -88,28 +89,31 @@
 }
 
 .nav-links li a:hover {
-  color: #fff;
+  color: var(--primary-green);
+  text-decoration: dashed !important;
+  text-decoration-color: #fff;
 }
 .navbar.scrolled .nav-links li a:hover {
   color: #111;
 }
 .apply-btn {
   background: var(--primary-green);
-  color: #fff !important;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.6rem 1.2rem;
+  color: #fff;
+  border: 1.5px solid white;
+  padding: 0.6rem 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-  opacity: 1;
+  transition: all 0.2s;
 }
+
 .highlight{
   color: var(--primary-green);
 }
 
 .apply-btn:hover {
-  opacity: 0.8;
+  color : var(--primary-green);
+  border: 1.5px solid var(--primary-green);
+  background-color: #fff !important;
 }
 
 /* Hamburger */
@@ -204,70 +208,31 @@
   gap: 1.4rem;
 }
 
+.btns{
+  display: flex;
+  gap: 4rem;
+}
+
 .main-logo {
   max-width: 90vw;
-  height: 30vh;
-  margin-bottom: 0rem;
-}
-
-.main-title {
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  color: #fff;
-  font-size: 2.8rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin-bottom: 0rem;
-}
-
-.main-desc {
-  color: #d1d5db;
-  font-size: 1.3rem;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-  font-family: inherit;
+  height: 50vh;
+  margin-bottom: 2rem;
 }
 
 .main-apply {
-  margin-top: 0.5rem;
-  font-size: 1.3rem;
-  transform: scale(1);
-  transition: transform 0.2s, opacity 0.2s;
+  font-family: 'Lato';
+  width: 220px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+  border: 3pxx solid white;
+  transition: all 0s;
 }
 
-.main-apply:hover {
-  transform: scale(1.05);
-  opacity: 0.8;
-}
-
-/* DOWN ARROW */
-.down-arrow {
-  position: absolute;
-  left: 50%;
-  bottom: 2.5rem;
-  transform: translateX(-50%);
-  z-index: 3;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  animation: arrow-bounce 1.2s infinite alternate cubic-bezier(0.4,0,0.2,1);
-}
-.down-arrow img {
-  width: 40px;
-  height: 40px;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
-  opacity: 0.85;
-  transition: opacity 0.2s;
-}
-.down-arrow:hover img {
-  opacity: 1;
-}
-
-@keyframes arrow-bounce {
-  0% {
-    transform: translateX(-50%) translateY(0);
-  }
-  100% {
-    transform: translateX(-50%) translateY(18px);
-  }
+.main-apply:hover{
+  color : var(--primary-green);
+  border: 1.5px solid var(--primary-green);
+  background-color: #fff !important;
 }
 
 @media (max-width: 900px) {
@@ -286,480 +251,6 @@
   .main-desc {
     font-size: 0.95rem;
   }
-  .down-arrow img {
-    width: 32px;
-    height: 32px;
-  }
 }
 
-/* Decorative SVG Blobs */
-.main-blob {
-  position: absolute;
-  z-index: 1;
-  width: 260px;
-  height: 260px;
-  pointer-events: none;
-  filter: blur(2px);
-  opacity: 0.7;
-}
-.main-blob-left {
-  top: 10vh;
-  left: -90px;
-}
-.main-blob-right {
-  bottom: 8vh;
-  right: -90px;
-}
-
-@media (max-width: 900px) {
-  .main-blob {
-    width: 140px;
-    height: 140px;
-  }
-  .main-blob-left {
-    top: 4vh;
-    left: -40px;
-  }
-  .main-blob-right {
-    bottom: 2vh;
-    right: -40px;
-  }
-}
-
-/* Feature Badges */
-.main-features {
-  display: flex;
-  gap: 2.2rem;
-  justify-content: center;
-  align-items: stretch;
-  margin: 2.2rem 0 1.2rem 0;
-  z-index: 3;
-  position: relative;
-}
-.feature-badge {
-  background: #fff;
-  border-radius: 1.2rem;
-  box-shadow: 0 2px 16px rgba(12,179,0,0.10);
-  padding: 1.2rem 1.5rem;
-  min-width: 170px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid var(--primary-green);
-  transition: box-shadow 0.2s, transform 0.2s;
-  position: relative;
-}
-.feature-badge:hover {
-  box-shadow: 0 8px 32px rgba(12,179,0,0.18);
-  transform: translateY(-4px) scale(1.04);
-}
-.feature-icon {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
-.feature-title {
-  font-weight: 700;
-  color: var(--primary-green);
-  font-size: 1.1rem;
-  margin-bottom: 0.2rem;
-}
-.feature-desc {
-  color: #374151;
-  font-size: 0.98rem;
-  text-align: center;
-}
-@media (max-width: 700px) {
-  .main-features {
-    flex-direction: column;
-    gap: 1.2rem;
-    margin: 1.2rem 0 0.5rem 0;
-  }
-  .feature-badge {
-    min-width: 0;
-    width: 95vw;
-    max-width: 99vw;
-    padding: 1rem 0.7rem;
-  }
-}
-
-/* Vertical Edge Badges */
-.main-edge-badge {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  border: 2px solid var(--primary-green);
-  border-radius: 1.2rem;
-  box-shadow: 0 2px 16px rgba(12,179,0,0.10);
-  padding: 0.7rem 0.8rem;
-  min-width: 90px;
-  max-width: 120px;
-  font-size: 1rem;
-  color: #222;
-  opacity: 0.96;
-  pointer-events: none;
-}
-.main-edge-badge-left {
-  left: 1.2vw;
-}
-.main-edge-badge-right {
-  right: 1.2vw;
-}
-.edge-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.3rem;
-}
-.edge-title {
-  font-weight: 600;
-  color: var(--primary-green);
-  text-align: center;
-  font-size: 0.98rem;
-  line-height: 1.2;
-}
-@media (max-width: 900px) {
-  .main-edge-badge {
-    min-width: 70px;
-    max-width: 90px;
-    font-size: 0.92rem;
-    padding: 0.5rem 0.5rem;
-  }
-  .main-edge-badge-left {
-    left: 0.2vw;
-  }
-  .main-edge-badge-right {
-    right: 0.2vw;
-  }
-}
-@media (max-width: 600px) {
-  .main-edge-badge {
-    display: none;
-  }
-}
-
-/* Floating Icons (Left and Right Edges) */
-.main-floating-icon {
-  position: fixed;
-  z-index: 12;
-  pointer-events: none;
-  opacity: 0.85;
-  filter: drop-shadow(0 2px 8px rgba(12,179,0,0.10));
-  font-size: 2.7rem;
-  color: var(--primary-green);
-  transition: opacity 0.2s;
-}
-.main-floating-icon-rupee {
-  right: 2vw;
-  top: 50%;
-  transform: translateY(-50%);
-  animation: rupee-float 2.8s ease-in-out infinite alternate;
-}
-.main-floating-icon-rocket {
-  left: 2vw;
-  top: 30%;
-  animation: rocket-float 3.2s ease-in-out infinite alternate;
-}
-.main-floating-icon-bulb {
-  right: 2vw;
-  top: 25%;
-  animation: bulb-float 3.7s ease-in-out infinite alternate;
-}
-.main-floating-icon-plant {
-  left: 2vw;
-  top: 70%;
-  animation: plant-float 3.1s ease-in-out infinite alternate;
-}
-@keyframes rupee-float {
-  0% { transform: translateY(-50%) translateY(0); }
-  100% { transform: translateY(-50%) translateY(-28px); }
-}
-@keyframes rocket-float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-22px); }
-}
-@keyframes bulb-float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-32px); }
-}
-@keyframes plant-float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-18px); }
-}
-@media (max-width: 900px) {
-  .main-floating-icon {
-    font-size: 2rem;
-  }
-  .main-floating-icon-rupee,
-  .main-floating-icon-bulb {
-    right: 0.5vw;
-  }
-  .main-floating-icon-rocket,
-  .main-floating-icon-plant {
-    left: 0.5vw;
-  }
-}
-@media (max-width: 600px) {
-  .main-floating-icon {
-    display: none;
-  }
-}
-
-/* Floating Rupee Icons (Left and Right Sides, 13 per side, scattered) */
-.main-floating-symbol {
-  position: fixed;
-  z-index: 12;
-  pointer-events: none;
-  color: var(--primary-green);
-  opacity: 0.38;
-  font-size: 2.6rem;
-  filter: blur(0.1px) drop-shadow(0 2px 8px rgba(12,179,0,0.13));
-  transition: opacity 0.2s;
-  user-select: none;
-}
-/* Left Side */
-.main-floating-rupee-l1 { left: 14vw; top: 12vh; font-size: 3.2rem; opacity: 0.44; animation: rupee-float-l1 3.2s ease-in-out infinite alternate; }
-.main-floating-rupee-l2 { left: 6vw; top: 18vh; font-size: 2.5rem; opacity: 0.32; animation: rupee-float-l2 2.7s ease-in-out infinite alternate; }
-.main-floating-rupee-l3 { left: 16vw; top: 24vh; font-size: 2.8rem; opacity: 0.36; animation: rupee-float-l3 3.7s ease-in-out infinite alternate; }
-.main-floating-rupee-l4 { left: 20vw; top: 30vh; font-size: 2.1rem; opacity: 0.28; animation: rupee-float-l4 2.9s ease-in-out infinite alternate; }
-.main-floating-rupee-l5 { left: 9vw; top: 36vh; font-size: 2.9rem; opacity: 0.34; animation: rupee-float-l5 3.5s ease-in-out infinite alternate; }
-.main-floating-rupee-l6 { left: 6vw; top: 42vh; font-size: 2.3rem; opacity: 0.29; animation: rupee-float-l6 2.8s ease-in-out infinite alternate; }
-.main-floating-rupee-l7 { left: 9vw; top: 48vh; font-size: 2.7rem; opacity: 0.33; animation: rupee-float-l7 3.1s ease-in-out infinite alternate; }
-.main-floating-rupee-l8 { left: 10vw; top: 56vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-l8 3.3s ease-in-out infinite alternate; }
-.main-floating-rupee-l9 { left: 8vw; top: 62vh; font-size: 2.6rem; opacity: 0.31; animation: rupee-float-l9 3.6s ease-in-out infinite alternate; }
-.main-floating-rupee-l10 { left: 10vw; top: 68vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-l10 2.9s ease-in-out infinite alternate; }
-.main-floating-rupee-l11 { left: 10vw; top: 74vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-l11 3.2s ease-in-out infinite alternate; }
-.main-floating-rupee-l12 { left: 8vw; top: 80vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-l12 3.4s ease-in-out infinite alternate; }
-.main-floating-rupee-l13 { left: 7vw; top: 86vh; font-size: 2.7rem; opacity: 0.30; animation: rupee-float-l13 3.1s ease-in-out infinite alternate; }
-/* Right Side */
-.main-floating-rupee-r1 { right: 18vw; top: 12vh; font-size: 3.2rem; opacity: 0.44; animation: rupee-float-r1 3.1s ease-in-out infinite alternate; }
-.main-floating-rupee-r2 { right: 10vw; top: 18vh; font-size: 2.5rem; opacity: 0.32; animation: rupee-float-r2 2.8s ease-in-out infinite alternate; }
-.main-floating-rupee-r3 { right: 26vw; top: 24vh; font-size: 2.8rem; opacity: 0.36; animation: rupee-float-r3 3.6s ease-in-out infinite alternate; }
-.main-floating-rupee-r4 { right: 5vw; top: 30vh; font-size: 2.1rem; opacity: 0.28; animation: rupee-float-r4 2.7s ease-in-out infinite alternate; }
-.main-floating-rupee-r5 { right: 7vw; top: 36vh; font-size: 2.9rem; opacity: 0.34; animation: rupee-float-r5 3.4s ease-in-out infinite alternate; }
-.main-floating-rupee-r6 { right: 4vw; top: 42vh; font-size: 2.3rem; opacity: 0.29; animation: rupee-float-r6 2.9s ease-in-out infinite alternate; }
-.main-floating-rupee-r7 { right: 9vw; top: 48vh; font-size: 2.7rem; opacity: 0.33; animation: rupee-float-r7 3.2s ease-in-out infinite alternate; }
-.main-floating-rupee-r8 { right: 2vw; top: 56vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-r8 3.3s ease-in-out infinite alternate; }
-.main-floating-rupee-r9 { right: 8vw; top: 62vh; font-size: 2.6rem; opacity: 0.31; animation: rupee-float-r9 3.6s ease-in-out infinite alternate; }
-.main-floating-rupee-r10 { right: 5vw; top: 68vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-r10 2.9s ease-in-out infinite alternate; }
-.main-floating-rupee-r11 { right: 10vw; top: 74vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-r11 3.2s ease-in-out infinite alternate; }
-.main-floating-rupee-r12 { right: 3vw; top: 80vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-r12 3.4s ease-in-out infinite alternate; }
-.main-floating-rupee-r13 { right: 7vw; top: 86vh; font-size: 2.7rem; opacity: 0.30; animation: rupee-float-r13 3.1s ease-in-out infinite alternate; }
-
-/* Keyframes for each rupee (slightly different for natural effect) */
-@keyframes rupee-float-l1 { 0% { transform: translateY(0); } 100% { transform: translateY(-18px); } }
-@keyframes rupee-float-l2 { 0% { transform: translateY(0); } 100% { transform: translateY(-12px); } }
-@keyframes rupee-float-l3 { 0% { transform: translateY(0); } 100% { transform: translateY(-22px); } }
-@keyframes rupee-float-l4 { 0% { transform: translateY(0); } 100% { transform: translateY(-9px); } }
-@keyframes rupee-float-l5 { 0% { transform: translateY(0); } 100% { transform: translateY(-16px); } }
-@keyframes rupee-float-l6 { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
-@keyframes rupee-float-l7 { 0% { transform: translateY(0); } 100% { transform: translateY(-14px); } }
-@keyframes rupee-float-l8 { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
-@keyframes rupee-float-l9 { 0% { transform: translateY(0); } 100% { transform: translateY(-13px); } }
-@keyframes rupee-float-l10 { 0% { transform: translateY(0); } 100% { transform: translateY(-7px); } }
-@keyframes rupee-float-l11 { 0% { transform: translateY(0); } 100% { transform: translateY(-15px); } }
-@keyframes rupee-float-l12 { 0% { transform: translateY(0); } 100% { transform: translateY(-11px); } }
-@keyframes rupee-float-l13 { 0% { transform: translateY(0); } 100% { transform: translateY(-12px); } }
-@keyframes rupee-float-r1 { 0% { transform: translateY(0); } 100% { transform: translateY(-18px); } }
-@keyframes rupee-float-r2 { 0% { transform: translateY(0); } 100% { transform: translateY(-12px); } }
-@keyframes rupee-float-r3 { 0% { transform: translateY(0); } 100% { transform: translateY(-22px); } }
-@keyframes rupee-float-r4 { 0% { transform: translateY(0); } 100% { transform: translateY(-9px); } }
-@keyframes rupee-float-r5 { 0% { transform: translateY(0); } 100% { transform: translateY(-16px); } }
-@keyframes rupee-float-r6 { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
-@keyframes rupee-float-r7 { 0% { transform: translateY(0); } 100% { transform: translateY(-14px); } }
-@keyframes rupee-float-r8 { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
-@keyframes rupee-float-r9 { 0% { transform: translateY(0); } 100% { transform: translateY(-13px); } }
-@keyframes rupee-float-r10 { 0% { transform: translateY(0); } 100% { transform: translateY(-7px); } }
-@keyframes rupee-float-r11 { 0% { transform: translateY(0); } 100% { transform: translateY(-15px); } }
-@keyframes rupee-float-r12 { 0% { transform: translateY(0); } 100% { transform: translateY(-11px); } }
-@keyframes rupee-float-r13 { 0% { transform: translateY(0); } 100% { transform: translateY(-12px); } }
-
-@media (max-width: 900px) {
-  .main-floating-symbol {
-    font-size: 1.1rem !important;
-    left: 0.5vw !important;
-    right: 0.5vw !important;
-  }
-}
-@media (max-width: 600px) {
-  .main-floating-symbol {
-    display: none;
-  }
-}
-
-/* Dollar Left */
-.main-floating-dollar-l2 { left: 22vw; top: 18vh; font-size: 2.5rem; opacity: 0.32; animation: rupee-float-l2 2.7s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-l4 { left: 5vw; top: 30vh; font-size: 2.1rem; opacity: 0.28; animation: rupee-float-l4 2.9s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-l6 { left: 4vw; top: 42vh; font-size: 2.3rem; opacity: 0.29; animation: rupee-float-l6 2.8s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-l8 { left: 2vw; top: 56vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-l8 3.3s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-l10 { left: 5vw; top: 68vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-l10 2.9s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-l12 { left: 3vw; top: 80vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-l12 3.4s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Dollar Right */
-.main-floating-dollar-r2 { right: 22vw; top: 18vh; font-size: 2.5rem; opacity: 0.32; animation: rupee-float-r2 2.8s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-r4 { right: 5vw; top: 30vh; font-size: 2.1rem; opacity: 0.28; animation: rupee-float-r4 2.7s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-r6 { right: 4vw; top: 42vh; font-size: 2.3rem; opacity: 0.29; animation: rupee-float-r6 2.9s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-r8 { right: 2vw; top: 56vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-r8 3.3s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-r10 { right: 5vw; top: 68vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-r10 2.9s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-dollar-r12 { right: 3vw; top: 80vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-r12 3.4s ease-in-out infinite alternate; color: var(--primary-green); }
-
-/* Euro Left */
-.main-floating-euro-l3 { left: 24vw; top: 24vh; font-size: 2.8rem; opacity: 0.36; animation: rupee-float-l3 3.7s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Pound Left */
-.main-floating-pound-l4 { left: 20vw; top: 30vh; font-size: 2.1rem; opacity: 0.28; animation: rupee-float-l4 2.9s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Chart Left */
-.main-floating-chart-l5 { left: 13vw; top: 36vh; font-size: 2.9rem; opacity: 0.34; animation: rupee-float-l5 3.5s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Bank Left */
-.main-floating-bank-l6 { left: 16vw; top: 42vh; font-size: 2.3rem; opacity: 0.29; animation: rupee-float-l6 2.8s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Briefcase Left */
-.main-floating-briefcase-l7 { left: 19vw; top: 48vh; font-size: 2.7rem; opacity: 0.33; animation: rupee-float-l7 3.1s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Coin Left */
-.main-floating-coin-l8 { left: 12vw; top: 56vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-l8 3.3s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-euro-l11 { left: 18vw; top: 74vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-l11 3.2s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-pound-l12 { left: 14vw; top: 80vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-l12 3.4s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Euro Right */
-.main-floating-euro-r3 { right: 24vw; top: 24vh; font-size: 2.8rem; opacity: 0.36; animation: rupee-float-r3 3.6s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Pound Right */
-.main-floating-pound-r4 { right: 32vw; top: 30vh; font-size: 2.1rem; opacity: 0.28; animation: rupee-float-r4 2.7s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Chart Right */
-.main-floating-chart-r5 { right: 13vw; top: 36vh; font-size: 2.9rem; opacity: 0.34; animation: rupee-float-r5 3.4s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Bank Right */
-.main-floating-bank-r6 { right: 16vw; top: 42vh; font-size: 2.3rem; opacity: 0.29; animation: rupee-float-r6 2.9s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Briefcase Right */
-.main-floating-briefcase-r7 { right: 19vw; top: 48vh; font-size: 2.7rem; opacity: 0.33; animation: rupee-float-r7 3.2s ease-in-out infinite alternate; color: var(--primary-green); }
-/* Coin Right */
-.main-floating-coin-r8 { right: 12vw; top: 56vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-r8 3.3s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-euro-r11 { right: 18vw; top: 74vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-r11 3.2s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-pound-r12 { right: 14vw; top: 80vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-r12 3.4s ease-in-out infinite alternate; color: var(--primary-green); }
-
-/* Percent Right */
-.main-floating-percent-r5 { right: 10vw; top: 10vh; font-size: 2.7rem; opacity: 0.33; animation: rupee-float-r5 3.4s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-percent-r6 { right: 14vw; top: 16vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-r6 2.9s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-percent-r7 { right: 8vw; top: 20vh; font-size: 2.5rem; opacity: 0.31; animation: rupee-float-r7 3.2s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-percent-r8 { right: 38vw; top: 22vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-r8 3.3s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-percent-r9 { right: 12vw; top: 28vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-r9 3.1s ease-in-out infinite alternate; color: var(--primary-green); }
-.main-floating-percent-r10 { right: 20vw; top: 34vh; font-size: 2.6rem; opacity: 0.30; animation: rupee-float-r10 3.1s ease-in-out infinite alternate; color: var(--primary-green); }
-
-/* Left Side: 25 icons, 5 of each type, no two same together */
-.main-floating-num-l1 { left: 18vw; top: 10vh; font-size: 2.7rem; opacity: 0.38; animation: rupee-float-l1 3.2s ease-in-out infinite alternate; }
-.main-floating-euro-l1 { left: 22vw; top: 14vh; font-size: 2.5rem; opacity: 0.32; animation: rupee-float-l2 2.7s ease-in-out infinite alternate; }
-.main-floating-dollar-l1 { left: 14vw; top: 18vh; font-size: 2.8rem; opacity: 0.36; animation: rupee-float-l3 3.7s ease-in-out infinite alternate; }
-.main-floating-percent-l1 { left: 26vw; top: 22vh; font-size: 2.1rem; opacity: 0.28; animation: rupee-float-l4 2.9s ease-in-out infinite alternate; }
-.main-floating-rupee-l1 { left: 7vw; top: 32vh; font-size: 2.9rem; opacity: 0.34; animation: rupee-float-l5 3.5s ease-in-out infinite alternate; }
-.main-floating-num-l2 { left: 4vw; top: 38vh; font-size: 2.3rem; opacity: 0.29; animation: rupee-float-l6 2.8s ease-in-out infinite alternate; }
-.main-floating-euro-l2 { left: 9vw; top: 44vh; font-size: 2.7rem; opacity: 0.33; animation: rupee-float-l7 3.1s ease-in-out infinite alternate; }
-.main-floating-dollar-l2 { left: 2vw; top: 52vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-l8 3.3s ease-in-out infinite alternate; }
-.main-floating-percent-l2 { left: 8vw; top: 58vh; font-size: 2.6rem; opacity: 0.31; animation: rupee-float-l9 3.6s ease-in-out infinite alternate; }
-.main-floating-rupee-l2 { left: 5vw; top: 64vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-l10 2.9s ease-in-out infinite alternate; }
-.main-floating-num-l3 { left: 10vw; top: 70vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-l11 3.2s ease-in-out infinite alternate; }
-.main-floating-euro-l3 { left: 3vw; top: 76vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-l12 3.4s ease-in-out infinite alternate; }
-.main-floating-dollar-l3 { left: 7vw; top: 82vh; font-size: 2.7rem; opacity: 0.30; animation: rupee-float-l13 3.1s ease-in-out infinite alternate; }
-.main-floating-percent-l3 { left: 12vw; top: 88vh; font-size: 2.5rem; opacity: 0.28; animation: rupee-float-l14 3.3s ease-in-out infinite alternate; }
-.main-floating-rupee-l3 { left: 5vw; top: 94vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-l15 3.2s ease-in-out infinite alternate; }
-.main-floating-num-l4 { left: 14vw; top: 100vh; font-size: 2.6rem; opacity: 0.31; animation: rupee-float-l16 3.6s ease-in-out infinite alternate; }
-.main-floating-euro-l4 { left: 8vw; top: 106vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-l17 2.9s ease-in-out infinite alternate; }
-.main-floating-dollar-l4 { left: 10vw; top: 112vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-l18 3.2s ease-in-out infinite alternate; }
-.main-floating-percent-l4 { left: 3vw; top: 118vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-l19 3.4s ease-in-out infinite alternate; }
-.main-floating-rupee-l4 { left: 7vw; top: 124vh; font-size: 2.7rem; opacity: 0.30; animation: rupee-float-l20 3.1s ease-in-out infinite alternate; }
-.main-floating-num-l5 { left: 12vw; top: 130vh; font-size: 2.5rem; opacity: 0.28; animation: rupee-float-l21 3.3s ease-in-out infinite alternate; }
-.main-floating-euro-l5 { left: 5vw; top: 136vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-l22 3.2s ease-in-out infinite alternate; }
-.main-floating-dollar-l5 { left: 14vw; top: 142vh; font-size: 2.6rem; opacity: 0.31; animation: rupee-float-l23 3.6s ease-in-out infinite alternate; }
-.main-floating-percent-l5 { left: 8vw; top: 148vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-l24 2.9s ease-in-out infinite alternate; }
-.main-floating-rupee-l5 { left: 10vw; top: 154vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-l25 3.2s ease-in-out infinite alternate; }
-
-/* Right Side: 25 icons, 5 of each type, no two same together */
-.main-floating-num-r1 { right: 8vw; top: 8vh; font-size: 2.7rem; opacity: 0.38; animation: rupee-float-r1 3.2s ease-in-out infinite alternate; }
-.main-floating-euro-r1 { right: 28vw; top: 10vh; font-size: 2.5rem; opacity: 0.32; animation: rupee-float-r2 2.7s ease-in-out infinite alternate; }
-.main-floating-dollar-r1 { right: 18vw; top: 12vh; font-size: 2.8rem; opacity: 0.36; animation: rupee-float-r3 3.7s ease-in-out infinite alternate; }
-.main-floating-percent-r1 { right: 32vw; top: 14vh; font-size: 2.1rem; opacity: 0.28; animation: rupee-float-r4 2.9s ease-in-out infinite alternate; }
-.main-floating-rupee-r1 { right: 12vw; top: 16vh; font-size: 2.9rem; opacity: 0.34; animation: rupee-float-r5 3.5s ease-in-out infinite alternate; }
-.main-floating-num-r2 { right: 4vw; top: 22vh; font-size: 2.3rem; opacity: 0.29; animation: rupee-float-r6 2.8s ease-in-out infinite alternate; }
-.main-floating-euro-r2 { right: 9vw; top: 28vh; font-size: 2.7rem; opacity: 0.33; animation: rupee-float-r7 3.1s ease-in-out infinite alternate; }
-.main-floating-dollar-r2 { right: 2vw; top: 34vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-r8 3.3s ease-in-out infinite alternate; }
-.main-floating-percent-r2 { right: 8vw; top: 40vh; font-size: 2.6rem; opacity: 0.31; animation: rupee-float-r9 3.6s ease-in-out infinite alternate; }
-.main-floating-rupee-r2 { right: 5vw; top: 46vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-r10 2.9s ease-in-out infinite alternate; }
-.main-floating-num-r3 { right: 10vw; top: 52vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-r11 3.2s ease-in-out infinite alternate; }
-.main-floating-euro-r3 { right: 3vw; top: 58vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-r12 3.4s ease-in-out infinite alternate; }
-.main-floating-dollar-r3 { right: 7vw; top: 64vh; font-size: 2.7rem; opacity: 0.30; animation: rupee-float-r13 3.1s ease-in-out infinite alternate; }
-.main-floating-percent-r3 { right: 12vw; top: 70vh; font-size: 2.5rem; opacity: 0.28; animation: rupee-float-r14 3.3s ease-in-out infinite alternate; }
-.main-floating-rupee-r3 { right: 5vw; top: 76vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-r15 3.2s ease-in-out infinite alternate; }
-.main-floating-num-r4 { right: 14vw; top: 82vh; font-size: 2.6rem; opacity: 0.31; animation: rupee-float-r16 3.6s ease-in-out infinite alternate; }
-.main-floating-euro-r4 { right: 8vw; top: 88vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-r17 2.9s ease-in-out infinite alternate; }
-.main-floating-dollar-r4 { right: 10vw; top: 94vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-r18 3.2s ease-in-out infinite alternate; }
-.main-floating-percent-r4 { right: 3vw; top: 100vh; font-size: 2.3rem; opacity: 0.26; animation: rupee-float-r19 3.4s ease-in-out infinite alternate; }
-.main-floating-rupee-r4 { right: 7vw; top: 106vh; font-size: 2.7rem; opacity: 0.30; animation: rupee-float-r20 3.1s ease-in-out infinite alternate; }
-.main-floating-num-r5 { right: 12vw; top: 112vh; font-size: 2.5rem; opacity: 0.28; animation: rupee-float-r21 3.3s ease-in-out infinite alternate; }
-.main-floating-euro-r5 { right: 5vw; top: 118vh; font-size: 2.2rem; opacity: 0.27; animation: rupee-float-r22 3.2s ease-in-out infinite alternate; }
-.main-floating-dollar-r5 { right: 14vw; top: 124vh; font-size: 2.6rem; opacity: 0.31; animation: rupee-float-r23 3.6s ease-in-out infinite alternate; }
-.main-floating-percent-r5 { right: 8vw; top: 130vh; font-size: 2.4rem; opacity: 0.28; animation: rupee-float-r24 2.9s ease-in-out infinite alternate; }
-.main-floating-rupee-r5 { right: 10vw; top: 136vh; font-size: 2.8rem; opacity: 0.32; animation: rupee-float-r25 3.2s ease-in-out infinite alternate; }
-
-.main-symbols-bg {
-  position: absolute;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  pointer-events: none;
-  z-index: 2;
-}
-.main-symbol-bg-item {
-  position: absolute;
-  color: var(--primary-green);
-  opacity: 0.28;
-  font-size: 2.2rem;
-  filter: blur(0.1px) drop-shadow(0 2px 8px rgba(12,179,0,0.13));
-  user-select: none;
-  z-index: 2;
-  animation: symbol-float 3.5s ease-in-out infinite alternate;
-}
-/* Scatter positions (avoid nav, logo, main text/button, blobs) */
-.main-symbol-bg-item1 { top: 7%; left: 8%; }
-.main-symbol-bg-item2 { top: 12%; left: 22%; }
-.main-symbol-bg-item3 { top: 18%; left: 32%; }
-.main-symbol-bg-item4 { top: 8%; left: 60%; }
-.main-symbol-bg-item5 { top: 13%; left: 80%; }
-.main-symbol-bg-item6 { top: 22%; left: 12%; }
-.main-symbol-bg-item7 { top: 28%; left: 25%; }
-.main-symbol-bg-item8 { top: 24%; left: 70%; }
-.main-symbol-bg-item9 { top: 30%; left: 85%; }
-.main-symbol-bg-item10 { top: 35%; left: 18%; }
-.main-symbol-bg-item11 { top: 38%; left: 40%; }
-.main-symbol-bg-item12 { top: 42%; left: 60%; }
-.main-symbol-bg-item13 { top: 38%; left: 78%; }
-.main-symbol-bg-item14 { top: 48%; left: 10%; }
-.main-symbol-bg-item15 { top: 52%; left: 30%; }
-.main-symbol-bg-item16 { top: 55%; left: 50%; }
-.main-symbol-bg-item17 { top: 60%; left: 70%; }
-.main-symbol-bg-item18 { top: 65%; left: 85%; }
-.main-symbol-bg-item19 { top: 70%; left: 20%; }
-.main-symbol-bg-item20 { top: 75%; left: 35%; }
-.main-symbol-bg-item21 { top: 80%; left: 60%; }
-.main-symbol-bg-item22 { top: 85%; left: 80%; }
-.main-symbol-bg-item23 { top: 90%; left: 10%; }
-.main-symbol-bg-item24 { top: 92%; left: 45%; }
-.main-symbol-bg-item25 { top: 95%; left: 70%; }
-.main-symbol-bg-item26 { top: 15%; left: 45%; }
-.main-symbol-bg-item27 { top: 22%; left: 55%; }
-.main-symbol-bg-item28 { top: 28%; left: 60%; }
-.main-symbol-bg-item29 { top: 32%; left: 75%; }
-.main-symbol-bg-item30 { top: 38%; left: 90%; }
-.main-symbol-bg-item31 { top: 45%; left: 28%; }
-.main-symbol-bg-item32 { top: 50%; left: 55%; }
-.main-symbol-bg-item33 { top: 55%; left: 80%; }
-.main-symbol-bg-item34 { top: 60%; left: 10%; }
-.main-symbol-bg-item35 { top: 65%; left: 30%; }
-.main-symbol-bg-item36 { top: 70%; left: 55%; }
-.main-symbol-bg-item37 { top: 75%; left: 75%; }
-.main-symbol-bg-item38 { top: 80%; left: 90%; }
-.main-symbol-bg-item39 { top: 85%; left: 25%; }
-.main-symbol-bg-item40 { top: 92%; left: 60%; }
-@keyframes symbol-float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-12px); }
-}
-
-@media (max-width: 1000px) {
-  .main-symbol-bg-item{
-    display: none;
-  }
-}
 

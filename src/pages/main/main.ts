@@ -1,17 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { About } from '../about/about';
-import { Perks } from '../perks/perks';
-import { Timeline } from '../timeline/timeline';
-import { Investor } from '../investor/investor';
-import { Faq } from '../faq/faq';
 import { isPlatformBrowser } from '@angular/common';
-import { Contact } from '../contact/contact';
 import { Router } from '@angular/router';
+import { About } from '../about/about';
+import { TimelineComponent } from '../timeline/timeline';
+import { Structure } from '../structure/structure';
+import { Incentives } from "../incentives/incentives";
+import { Faq } from '../faq/faq';
 
 @Component({
   selector: 'app-main',
-  imports: [CommonModule, About, Perks, Timeline, Investor, Faq, Contact],
+  imports: [CommonModule, About, TimelineComponent, Structure, Incentives, Faq],
   templateUrl: './main.html',
   styleUrl: './main.css'
 })
@@ -21,13 +20,12 @@ export class Main {
   isMobileView = false;
 
   navLinks = [
-    { label: 'ABOUT US', id: 'ABOUT US' },
-    { label: 'BENEFITS', id: 'BENEFITS' },
-    { label: 'TIMELINE', id: 'TIMELINE' },
-    { label: 'PREVIOUS INVESTORS', id: 'PREVIOUS' },
-    { label: 'FAQ', id: 'FAQ' },
+    { label: 'ABOUT', id: 'ABOUT US' },
+    { label: 'BROCHURE', id: 'BENEFITS' },
+    { label: 'IMPORTANT DATES', id: 'TIMELINE' },
+    { label: 'FAQs', id: 'FAQ' },
     { label: 'CONTACT US', id: 'CONTACT' },
-    { label: 'APPLY NOW', id: 'APPLY', isButton: true }
+    { label: 'REGISTER', id: 'APPLY', isButton: true }
   ];
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}

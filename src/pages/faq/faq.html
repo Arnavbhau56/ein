@@ -1,21 +1,19 @@
-<div class="faq" data-aos="fade-in">
-  <section class="faq-section" data-aos="fade-up">
-    <h2 class="faq-title" data-aos="fade-up" data-aos-delay="100">Frequently Asked <span class="highlight">Questions</span></h2>
-    <p class="faq-desc" data-aos="fade-up" data-aos-delay="200">Get answers to common questions about Seed Stars 2025</p>
-  </section>
-
-  <div *ngIf="loading" class="faq-loading">Loading FAQs...</div>
-  <div *ngIf="error" class="faq-error">{{ error }}</div>
-
-  <div class="faq-list" *ngIf="!loading && !error">
-    <div class="faq-accordion" *ngFor="let faq of faqs; let i = index">
-      <button class="faq-question" [class.open]="openIndex === i" (click)="toggleAccordion(i)">
-        <span>{{ faq.title }}</span>
-        <span class="faq-chevron" [class.open]="openIndex === i">&#8250;</span>
-      </button>
-      <div class="faq-answer" *ngIf="openIndex === i">
-        {{ faq.description }}
-      </div>
+<div class="about">
+    <div class="heading">
+        Guidelines
     </div>
-  </div>
+
+    <div class="box-bg">
+      <div class="list">
+        <ol class="guidlines">
+          <li class="points">This is the first guideline.</li>
+          <li class="points">This is the first guideline.</li>
+          <li class="points">This is the first guideline.</li>
+          <li class="points">This is the first guideline.</li>
+          <li class="points">This is the first guideline.</li>
+          <li class="points">This is the first guideline.</li>
+        </ol>
+        </div>
+    </div>
+
 </div>

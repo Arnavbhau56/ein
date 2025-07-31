@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "seedstars": {
+    "iento": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -28,7 +28,7 @@
               "src/styles.css",
               "node_modules/aos/dist/aos.css"
             ],
-            "baseHref": "/seedstars/"
+            "baseHref": "/iento/"
           },
           "configurations": {
             "production": {
@@ -58,10 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "seedstars:build:production"
+              "buildTarget": "iento:build:production"
             },
             "development": {
-              "buildTarget": "seedstars:build:development"
+              "buildTarget": "iento:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -1,0 +1,100 @@
+.about {
+  background-color: #222;
+  padding: 2.5rem 4rem;
+}
+
+.heading {
+  font-family: 'Poppins';
+  color: #fff;
+  font-weight: bolder;
+  font-size: 2vw;
+  border: 1px dashed white;
+  padding: 4px 10px;
+  display: inline;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.clr-card{
+    background-color: #313131;
+    padding: 0.5rem 0.4rem;
+    width: 270px;
+    border-radius: 20px;
+    margin-top: 2rem;
+    transition: all 2s;
+}
+
+.clr-card:hover{
+    transform: scale(1.02);
+    background:#808080;
+}
+
+.card-wrapper {
+  background: linear-gradient(135deg, #808080 0%, #000 50%, #808080 100%);
+  padding: 1px; 
+  width: 268px;
+  border-radius: 22px; 
+  display: inline-block; 
+  cursor: pointer;
+}
+
+.card-wrapper:hover{
+    background:#808080;
+}
+
+.card {
+  background-color: #000;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-radius: 20px;
+}
+
+.incentives-img{
+    background-color: #fff;
+    border-radius: 20px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s;
+}
+
+.incentives-img:hover{
+    box-shadow: inset 0 0 10px 2px #FEBBA0;
+    transform: scale(1.02);
+}
+
+.logo{
+    width: 90%;
+}
+
+.content{
+    padding: 0.4rem;
+}
+
+.title{
+    color: #FEBBA0;
+    font-family: 'Lato';
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.info{
+    color: #fff;
+    font-family: 'Lato';
+    line-height: 1.3;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+

@@ -1,7 +1,7 @@
 :host {
     --color: white;
     --quick-link-color: var(--primary-green);
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: 'Lato', Arial, sans-serif;
   }
   h2,
   h3,
@@ -12,7 +12,7 @@
   }
 
   .hlo h4:hover{
-    color: #76eac3;
+    color: #ff4800;
   }
   
   h3 {
@@ -25,7 +25,7 @@
   }
   
   footer {
-    background-color: rgb(17, 24, 39);
+    background-color: #111;
     border-top: 1.4px solid white;
   
     .container-xxl {
@@ -60,7 +60,7 @@
     span {
       font-weight: 700;
       font-size: 1.5em;
-      font-family: 'Poppins', Arial, sans-serif;
+      font-family: 'Lato', Arial, sans-serif;
     }
   }
 
@@ -68,7 +68,7 @@
     margin-top: 10px;
     font-weight: 400;
     font-size: 1em;
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: 'Lato', Arial, sans-serif;
     
   }
   

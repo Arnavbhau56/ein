@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit {
-  protected title = 'seedstars';
+  protected title = 'iento';
 
   ngAfterViewInit() {
     console.log('AOS: About to initialize');
