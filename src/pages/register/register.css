@@ -1,0 +1,527 @@
+/* Remove dark/blurred background overlays */
+.register-root::before,
+.register-root::after {
+  display: none !important;
+}
+
+.reg{
+    background: #222;
+    padding: 2rem 0;
+}
+
+body, .register-root {
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+  background: #222;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.star{
+  color: red !important;
+}
+
+.register-card {
+  background: #000;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 550px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  color: #fff;
+  border: 1px solid #fff;
+  position: relative;
+  z-index: 10;
+}
+
+.progress-container {
+  margin-bottom: 1.3rem;
+  flex-shrink: 0;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+.progress-step.active .step-number {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  color: #fff;
+}
+
+.progress-step.completed .step-number {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  color: #fff;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  color: #ccc;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.progress-step.active .step-label {
+  color: var(--primary-green);
+}
+
+.progress-step.completed .step-label {
+  color: var(--primary-green);
+}
+
+.progress-line {
+  flex: 1;
+  height: 2px;
+  background: #333;
+  margin: 0 1rem;
+  transition: background 0.3s ease;
+}
+
+.progress-line.completed {
+  background: var(--primary-green);
+}
+
+.star {
+  color: #e11d48;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  flex: 1;
+  padding: 0.5rem 0 0 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.input-group label {
+  color: #fff;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #333;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border: 1.5px solid var(--primary-green);
+  background: #222;
+}
+
+.input-group input:disabled,
+.input-group select:disabled,
+.input-group textarea:disabled {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.input-row {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.input-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* OTP Input Styles */
+.otp-container, .otp-group .otp-boxes {
+  display: flex;
+  width: 65%;
+  flex-direction: row;
+  gap: 0.7rem;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0.5rem 0;
+  margin: auto;
+}
+
+.otp-input {
+  width: 44px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid #333;
+  background: #111;
+  color: #fff;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
+}
+
+.otp-input:focus {
+  border: 2px solid var(--primary-green);
+  background: #222;
+}
+
+/* Checkbox Styles */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 0.8rem;
+  padding: 1rem;
+  background: #111;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 1rem;
+  background: #000;
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  min-width: 80px;
+  justify-content: center;
+}
+
+.checkbox-item:hover {
+  border-color: var(--primary-green);
+  background: #111;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--primary-green);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked {
+  transform: scale(1.1);
+}
+
+.checkbox-item label {
+  margin: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 500;
+  user-select: none;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.7rem 2.2rem;
+  background: var(--primary-green);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 #0cb30011;
+  width: auto;
+  margin-top: 1.2rem;
+}
+
+.send-otp-btn {
+  margin-top: 0;
+  min-width: 120px;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.98rem;
+  flex-shrink: 0;
+  background: var(--primary-green);
+}
+
+.btn:hover {
+  background: #ae3100;
+}
+
+.btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-shrink: 0;
+  margin-top: 1.2rem;
+}
+
+.prev-btn {
+  background: #6b7280;
+  color: #fff;
+}
+
+.prev-btn:hover {
+  background: #374151;
+}
+
+.next-btn,
+.submit-btn {
+  background: var(--primary-green);
+}
+
+.next-btn:hover,
+.submit-btn:hover {
+  background: #ae3100;
+}
+
+/* Accent colors for buttons and progress bar */
+.btn, .next-btn, .submit-btn {
+  background: var(--primary-green);
+  color: #fff;
+}
+.send-otp-btn {
+  background: var(--primary-green);
+  color: #fff;
+}
+.btn:hover, .next-btn:hover, .submit-btn:hover {
+  background: #ae3100;
+}
+.prev-btn {
+  background: #6b7280;
+}
+.prev-btn:hover {
+  background: #374151;
+}
+
+/* Progress bar accent colors */
+.progress-step.active .step-number {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  color: #fff;
+}
+.progress-step.completed .step-number {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  color: #fff;
+}
+.progress-step.active .step-label {
+  color: var(--primary-green);
+}
+.progress-step.completed .step-label {
+  color: var(--primary-green);
+}
+.progress-line.completed {
+  background: var(--primary-green);
+}
+
+/* Inputs and labels */
+.input-group label {
+  color: #fff;
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+}
+.input-group input,
+.input-group select,
+.input-group textarea {
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+  color: #fff;
+  background: #111;
+  border: 1.5px solid #333;
+}
+
+/* Ensure all text is white by default, except for input fields */
+.register-card, .register-card * {
+  color: #fff;
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+}
+.input-group input,
+.input-group select,
+.input-group textarea {
+  color: #fff;
+  background: #111;
+}
+
+/* Fix z-index for overlay */
+.register-card {
+  z-index: 2;
+}
+
+.register-heading {
+  font-family: 'Lato', 'Poppins', Arial, Helvetica, sans-serif;
+  margin: 0 32px;
+  font-size: 3.4rem;
+  letter-spacing: -1px;
+  font-weight: 800;
+  color: var(--primary-green);
+  z-index: 20;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .register-heading {
+    position: static;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem 0.5rem;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 600px) {
+  .register-card {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+    border-radius: 10px;
+  }
+  .otp-container, .otp-group .otp-boxes {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  gap: 0.1rem;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0.5rem 0;
+  margin: auto;
+}
+  .otp-input {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+  .checkbox-group {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+  
+  .checkbox-item {
+    min-width: auto;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .register-card {
+    padding: 0.5rem 0.4rem;
+    max-width: 87vw;
+    border-radius: 6px;
+  }
+  .otp-input {
+    width: 40px;
+    height: 50px;
+    font-size: 0.5rem;
+  }
+}
+
+/* Improve select option appearance globally */
+.input-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #111 url('data:image/svg+xml;utf8,<svg fill="%2310b981" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 7.293a1 1 0 011.414 0L10 8.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"/></svg>') no-repeat right 1rem center/1.2em auto;
+  padding: 0.7rem 1rem;
+  padding-right: 2.5rem;
+  border: 1.5px solid #333;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.input-group select:hover {
+  border-color: var(--primary-green);
+  background: #222;
+}
+
+.input-group select:focus {
+  border: 1.5px solid var(--primary-green);
+  background: #222;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.input-group select option {
+  background: #000;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.input-group select option:hover {
+  background: #111;
+}
+
+.input-group select option:checked {
+  background: var(--primary-green);
+  color: #fff;
+}

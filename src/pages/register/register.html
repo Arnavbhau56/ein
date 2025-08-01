@@ -1,0 +1,155 @@
+<div class="reg">
+<div class="reg">
+  <div class="register-heading">REGISTER</div>
+  <div class="register-card">
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-step" [class.active]="currentPage >= 1" [class.completed]="currentPage > 1">
+        <div class="step-number">1</div>
+        <div class="step-label">EMAIL VERIFICATION</div>
+      </div>
+      <div class="progress-line" [class.completed]="currentPage > 1"></div>
+      <div class="progress-step" [class.active]="currentPage >= 2">
+        <div class="step-number">2</div>
+        <div class="step-label">SCHOOL DETAILS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 1: Email Verification -->
+  <form *ngIf="currentPage === 1" class="register-form" autocomplete="off">
+    <div class="input-group input-row">
+      <div class="input-col">
+        <label for="email">Email <span class="star">*</span></label>
+        <input type="email" id="email" [(ngModel)]="formData.email" name="email" required autocomplete="off" (ngModelChange)="onFormDataChange()" />
+      </div>
+      <button class="btn send-otp-btn" type="button" (click)="showResend ? resendOtp() : sendOtp()" [disabled]="otpSent && !showResend">
+        <ng-container *ngIf="otpSent">
+          <ng-container *ngIf="!showResend">Wait {{ timer }}s</ng-container>
+          <ng-container *ngIf="showResend">Resend OTP</ng-container>
+        </ng-container>
+        <ng-container *ngIf="!otpSent">Send OTP</ng-container>
+      </button>
+    </div>
+    <div class="input-group otp-group">
+      <label>OTP <span class="star">*</span></label>
+      <div class="otp-boxes">
+        <input *ngFor="let digit of otpDigits; let i = index; trackBy: trackByIndex" maxlength="1" type="text" class="otp-input" [(ngModel)]="otpDigits[i]" [name]="'otp' + i" [ngModelOptions]="{standalone: true}" #otpInput
+          (input)="onOtpInput(i, $event)" (keydown)="onOtpKeydown(i, $event)" (paste)="onOtpPaste($event)" required />
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn next-btn" type="button" (click)="nextPage()">Next</button>
+    </div>
+  </form>
+
+  <!-- Page 2: School Details -->
+  <form *ngIf="currentPage === 2" class="register-form">
+    <div class="form-row">
+      <div class="input-group">
+        <label for="pocFirstName">POC's First Name <span class="star">*</span></label>
+        <input type="text" id="pocFirstName" [(ngModel)]="formData.poc_first_name" name="pocFirstName" required (ngModelChange)="onFormDataChange()" />
+      </div>
+      <div class="input-group">
+        <label for="pocLastName">POC's Last Name <span class="star">*</span></label>
+        <input type="text" id="pocLastName" [(ngModel)]="formData.poc_last_name" name="pocLastName" required (ngModelChange)="onFormDataChange()" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="schoolName">School Name <span class="star">*</span></label>
+        <input type="text" id="schoolName" [(ngModel)]="formData.school_name" name="schoolName" required (ngModelChange)="onFormDataChange()" />
+      </div>
+      <div class="input-group">
+        <label for="schoolNation">School Country <span class="star">*</span></label>
+        <select id="schoolNation" [(ngModel)]="formData.school_nation" name="schoolNation" required (ngModelChange)="onFormDataChange()">
+          <option value="">Select Country</option>
+          <option value="India">India</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </div>
+    
+    <!-- Other Country Specification -->
+    <div class="input-group" *ngIf="formData.school_nation === 'Other'">
+      <label for="otherCountry">Please Specify <span class="star">*</span></label>
+                <input type="text" id="otherCountry" [(ngModel)]="formData.school_nation" name="otherCountry" required (ngModelChange)="onFormDataChange()" />
+    </div>
+
+    <!-- India-specific fields -->
+    <div *ngIf="formData.school_nation === 'India'">
+      <div class="form-row">
+        <div class="input-group">
+          <label for="postalCode">Postal Code <span class="star">*</span></label>
+          <input type="text" id="postalCode" [(ngModel)]="formData.school_postalcode" name="postalCode" 
+                 (input)="onPostalCodeInput()" (blur)="onPostalCodeChange()" (ngModelChange)="onFormDataChange()" maxlength="6" minlength="6" required 
+                 placeholder="State and city will be auto-filled" />
+        </div>
+        <div class="input-group">
+          <label for="state">State <span class="star">*</span></label>
+          <input type="text" id="state" [(ngModel)]="formData.school_state" name="state" required [readonly]="postalCodeAutoFilled" (ngModelChange)="onFormDataChange()" />
+        </div>
+        <div class="input-group">
+          <label for="city">City <span class="star">*</span></label>
+          <input type="text" id="city" [(ngModel)]="formData.school_city" name="city" required [readonly]="postalCodeAutoFilled" (ngModelChange)="onFormDataChange()" />
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="schoolAddress">School Address <span class="star">*</span></label>
+      <textarea id="schoolAddress" [(ngModel)]="formData.school_address" name="schoolAddress" required 
+                placeholder="Please fill it correctly, papers would be delivered to this address." (ngModelChange)="onFormDataChange()"></textarea>
+    </div>
+
+    <div class="input-group">
+      <label>Classes in School <span class="star">*</span></label>
+      <div class="checkbox-group">
+        <div class="checkbox-item" *ngFor="let option of classOptions">
+          <input type="checkbox" [id]="'class' + option.value" 
+                 [checked]="isClassSelected(option.value)"
+                 (change)="onClassChange(option.value)" />
+          <label [for]="'class' + option.value">{{ option.label }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="input-group">
+        <label for="contact">Contact <span class="star">*</span></label>
+        <input type="text" id="contact" [(ngModel)]="formData.contact" name="contact" required (ngModelChange)="onFormDataChange()" />
+      </div>
+      <div class="input-group">
+        <label for="alternateContact">Alternate Contact</label>
+        <input type="text" id="alternateContact" [(ngModel)]="formData.alternate_contact" name="alternateContact" (ngModelChange)="onFormDataChange()" />
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="reference">Reference <span class="star">*</span></label>
+      <select id="reference" [(ngModel)]="formData.reference" name="reference" required (change)="onReferenceChange()" (ngModelChange)="onFormDataChange()">
+        <option value="">Select Reference</option>
+        <option *ngFor="let option of referenceOptions" [value]="option.value">{{ option.label }}</option>
+      </select>
+    </div>
+
+    <!-- Referral ID fields -->
+    <div class="input-group" *ngIf="showReferralField()">
+      <label for="referralId">Referral ID <span class="star">*</span></label>
+      <input type="text" id="referralId" [(ngModel)]="formData.referral_id" name="referralId" required (ngModelChange)="onFormDataChange()" />
+    </div>
+
+    <div class="input-group" *ngIf="showSecondReferralField()">
+      <label for="referralId2">Second Referral ID <span class="star">*</span></label>
+      <input type="text" id="referralId2" [(ngModel)]="formData.referral_id_2" name="referralId2" required (ngModelChange)="onFormDataChange()" />
+    </div>
+
+    <div class="form-actions">
+      <button class="btn prev-btn" type="button" (click)="previousPage()">Previous</button>
+      <button class="btn submit-btn" type="button" (click)="validatePage2()">Submit</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
