@@ -1,0 +1,81 @@
+<div class="reset-container">
+  <div class="reset-heading">RESET PASSWORD</div>
+  <div class="reset-card">
+    <form class="reset-form" (ngSubmit)="onSubmit()" #resetForm="ngForm">
+      <div class="input-group input-row">
+        <div class="input-col">
+          <label for="email">Email <span class="star">*</span></label>
+          <input 
+            type="email" 
+            id="email" 
+            [(ngModel)]="resetData.email" 
+            name="email" 
+            required 
+            autocomplete="email"
+            placeholder="Enter your email"
+          />
+        </div>
+        <button 
+          class="btn send-otp-btn" 
+          type="button" 
+          (click)="showResend ? resendOtp() : sendOtp()" 
+          [disabled]="otpSent && !showResend"
+        >
+          <ng-container *ngIf="otpSent">
+            <ng-container *ngIf="!showResend">Wait {{ timer }}s</ng-container>
+            <ng-container *ngIf="showResend">Resend OTP</ng-container>
+          </ng-container>
+          <ng-container *ngIf="!otpSent">Send OTP</ng-container>
+        </button>
+      </div>
+      
+      <div class="input-group otp-group" *ngIf="otpSent">
+        <label>OTP <span class="star">*</span></label>
+        <div class="otp-boxes">
+          <input 
+            *ngFor="let digit of otpDigits; let i = index; trackBy: trackByIndex" 
+            maxlength="1" 
+            type="text" 
+            class="otp-input" 
+            [(ngModel)]="otpDigits[i]" 
+            [name]="'otp' + i" 
+            [ngModelOptions]="{standalone: true}" 
+            #otpInput
+            (input)="onOtpInput(i, $event)" 
+            (keydown)="onOtpKeydown(i, $event)" 
+            (paste)="onOtpPaste($event)" 
+            required 
+          />
+        </div>
+      </div>
+      
+      <div class="input-group" *ngIf="otpSent">
+        <label for="newPassword">New Password <span class="star">*</span></label>
+        <input 
+          type="password" 
+          id="newPassword" 
+          [(ngModel)]="resetData.newPassword" 
+          name="newPassword" 
+          required 
+          placeholder="Enter new password"
+        />
+      </div>
+      
+      <div class="input-group" *ngIf="otpSent">
+        <label for="confirmPassword">Confirm Password <span class="star">*</span></label>
+        <input 
+          type="password" 
+          id="confirmPassword" 
+          [(ngModel)]="resetData.confirmPassword" 
+          name="confirmPassword" 
+          required 
+          placeholder="Confirm new password"
+        />
+      </div>
+      
+      <div class="form-actions" *ngIf="otpSent">
+        <button class="btn submit-btn" type="submit">Reset Password</button>
+      </div>
+    </form>
+  </div>
+</div>

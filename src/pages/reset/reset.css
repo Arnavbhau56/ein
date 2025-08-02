@@ -1,0 +1,246 @@
+.reset-container {
+  background: #222;
+  padding: 1rem 0;
+  padding-bottom: 2rem;
+  min-height: 100vh;
+}
+
+.reset-heading {
+  font-family: 'Lato', 'Poppins', Arial, Helvetica, sans-serif;
+  margin: 0 32px;
+  font-size: 3.4rem;
+  letter-spacing: -1px;
+  font-weight: 800;
+  color: var(--primary-green);
+  z-index: 20;
+  margin-bottom: 1.5rem;
+}
+
+.reset-card {
+  background: #000;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  color: #fff;
+  border: 1px solid #fff;
+  position: relative;
+  z-index: 10;
+}
+
+.reset-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  flex: 1;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.input-group label {
+  color: #fff;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+}
+
+.input-group input {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #333;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  border: 1.5px solid var(--primary-green);
+  background: #222;
+}
+
+.input-group input::placeholder {
+  color: #666;
+}
+
+.input-row {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.input-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.star {
+  color: #e11d48;
+}
+
+/* OTP Input Styles */
+.otp-group .otp-boxes {
+  display: flex;
+  width: 65%;
+  flex-direction: row;
+  gap: 0.7rem;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0.5rem 0;
+  margin: auto;
+}
+
+.otp-input {
+  width: 44px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid #333;
+  background: #111;
+  color: #fff;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
+}
+
+.otp-input:focus {
+  border: 2px solid var(--primary-green);
+  background: #222;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.7rem 2.2rem;
+  background: var(--primary-green);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 #0cb30011;
+  width: auto;
+  margin-top: 1.2rem;
+}
+
+.send-otp-btn {
+  margin-top: 0;
+  min-width: 120px;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.98rem;
+  flex-shrink: 0;
+  background: var(--primary-green);
+}
+
+.btn:hover {
+  background: #ae3100;
+}
+
+.btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  margin-top: 1.2rem;
+}
+
+.submit-btn {
+  background: var(--primary-green);
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #ae3100;
+}
+
+/* Accent colors for buttons */
+.btn, .submit-btn {
+  background: var(--primary-green);
+  color: #fff;
+}
+
+.send-otp-btn {
+  background: var(--primary-green);
+  color: #fff;
+}
+
+.btn:hover, .submit-btn:hover {
+  background: #ae3100;
+}
+
+/* Ensure all text is white by default */
+.reset-card, .reset-card * {
+  color: #fff;
+  font-family: 'Lato', 'Poppins', Arial, sans-serif;
+}
+
+.input-group input {
+  color: #fff;
+  background: #111;
+}
+
+@media (max-width: 600px) {
+  .reset-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem 0.5rem;
+    text-align: left;
+    line-height: 1.2;
+  }
+  
+  .reset-card {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+    border-radius: 10px;
+  }
+  
+  .otp-group .otp-boxes {
+    width: 90%;
+    gap: 0.1rem;
+  }
+  
+  .otp-input {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .reset-card {
+    padding: 0.5rem 0.4rem;
+    max-width: 87vw;
+    border-radius: 6px;
+  }
+  
+  .otp-input {
+    width: 40px;
+    height: 50px;
+    font-size: 0.5rem;
+  }
+}
