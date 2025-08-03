@@ -1,7 +1,6 @@
 <div class="host">
-<!-- Background overlay for blur and opacity -->
-<div class="main-bg" data-aos="fade-in"></div>
-
+<!-- Vanta.js Globe Background -->
+<div id="vanta-globe" class="vanta-background"></div>
 <!-- NAVBAR -->
 <nav class="navbar" [class.scrolled]="scrolled">
   <div class="navbar-content">
@@ -23,12 +22,13 @@
   </div>
 </nav>
 
+
 <!-- MAIN CONTENT -->
-<main class="main-content" data-aos="zoom-in">
-  <img src="assets/logo_iento.png" alt="Seedstar" class="main-logo" data-aos="fade-up" data-aos-delay="100" />
+<main class="main-content">
+  <img src="assets/logo_iento.png" alt="Seedstar" class="main-logo" />
   <div class="btns">
-  <button class="apply-btn main-apply" (click)="onApplyNow()" data-aos="fade-up" data-aos-delay="400">REGISTER</button>
-  <button class="apply-btn main-apply" (click)="onApplyNow()" data-aos="fade-up" data-aos-delay="400">LOGIN</button>
+  <button class="apply-btn main-apply" (click)="onApplyNow()">REGISTER</button>
+  <button class="apply-btn main-apply" (click)="onApplyLogin()">LOGIN</button>
   </div>
 </main>
 

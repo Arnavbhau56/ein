@@ -1,0 +1,52 @@
+<div class="login-container">
+  <div class="login-heading">LOGIN</div>
+  <div class="login-card">
+    <form class="login-form" (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <div class="input-group">
+        <label for="email">Email <span class="star">*</span></label>
+        <input 
+          type="email" 
+          id="email" 
+          [(ngModel)]="loginData.email" 
+          name="email" 
+          required 
+          autocomplete="email"
+          placeholder="Enter your email"
+        />
+      </div>
+      
+      <div class="input-group">
+        <label for="password">Password <span class="star">*</span></label>
+        <input 
+          type="password" 
+          id="password" 
+          [(ngModel)]="loginData.password" 
+          name="password" 
+          required 
+          autocomplete="current-password"
+          placeholder="Enter your password"
+        />
+      </div>
+      
+      <div class="form-actions">
+        <button class="btn login-btn" type="submit" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading">Logging in...</span>
+        </button>
+      </div>
+    </form>
+    
+    <div class="navigation-links">
+      <a href="#" (click)="navigateToRegister($event)" class="nav-link">New User? Register Now</a>
+      <a href="#" (click)="navigateToReset($event)" class="nav-link">Reset Password</a>
+    </div>
+    
+    <div class="divider">
+      <span>OR</span>
+    </div>
+    
+    <div class="google-login" id="google-login-container">
+      <!-- Google Sign-In button will be rendered here programmatically -->
+    </div>
+  </div>
+</div>

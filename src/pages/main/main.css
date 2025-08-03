@@ -7,33 +7,30 @@
   overflow: hidden;
 }
 
-.main-bg {
+/* Vanta.js Globe Background */
+.vanta-background {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  left: 0;
-  right: 0;
   top: 0;
-  background: #222 center center / cover no-repeat;
-  filter: blur(8px);
-  opacity: 1;
-  z-index: 0;
-  transform: scale(1.05);
-}
-.main-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  left: 0;
-  right: 0;
-  background: #222; 
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
-  transform: scale(1.05);
+  background: #272727; /* Fallback background color */
 }
+
+/* Ensure content is visible over Vanta.js background */
+.main-logo {
+  position: relative;
+  z-index: 4;
+}
+
+.btns {
+  position: relative;
+  z-index: 4;
+}
+
+/* Removed old background styles - using Vanta.js globe instead */
 
 
 /* NAVBAR */
@@ -41,9 +38,9 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 15;
   background: #fff;
-  background: transparent;
+  background: #222222;
   transition: background 0.3s;
   font-family: "Lato", sans-serif;
   font-weight: 700;
@@ -197,25 +194,26 @@
 /* MAIN CONTENT */
 .main-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   height: 100vh;
-  width: 100%;
+  width: 40vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
   gap: 1.4rem;
+  padding-left: 7.5rem;
 }
 
 .btns{
   display: flex;
+  margin: 0 auto;
   gap: 4rem;
 }
 
 .main-logo {
-  max-width: 90vw;
-  height: 50vh;
+  width: 40vw;
   margin-bottom: 2rem;
 }
 
@@ -226,13 +224,15 @@
   padding-bottom: 1rem;
   font-size: 2rem;
   border: 3pxx solid white;
-  transition: all 0s;
+  transition: all 0.2s ease;
+  will-change: transform, background-color, color, border-color;
 }
 
 .main-apply:hover{
   color : var(--primary-green);
   border: 1.5px solid var(--primary-green);
-  background-color: #fff !important;
+  background-color: #fff;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 900px) {
