@@ -2,5 +2,20 @@
     <div class="heading">
         Contact Us
     </div>
+
+<div class="card-container">
+  <div class="profile-card" *ngFor="let member of teamMembers">
+    <img class="left-image" [src]="member.image" alt="{{member.name}}" draggable="false"/>
+    <div class="info-section">
+      <div class="name">{{ member.name }}</div>
+      <div class="designation">{{ member.designation }}</div>
+      <div class="icons">
+        <a [href]="member.whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a [href]="member.linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a [href]="member.mail" target="_blank"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
      
 </div>

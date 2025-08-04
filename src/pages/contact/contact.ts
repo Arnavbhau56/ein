@@ -1,76 +1,46 @@
-import { Component, Pipe } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
-@Pipe({
-  name: 'formatContact',
-  standalone: true,
-  pure: true,
-})
-export class FormatContactPipe {
-  transform(value: string): string {
-    return value.replace(/\+(\d{2})(\d{5})(\d{5})/, '+$1 $2 $3');
-  }
-}
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
-  standalone: true,
-  imports: [FormatContactPipe, FontAwesomeModule],
+  imports: [CommonModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.css',
+  styleUrl: './contact.css'
 })
 
 export class Contact {
-  // Font Awesome icons
-  faWhatsapp = faWhatsapp;
-  faEnvelope = faEnvelope;
-  faLinkedin = faLinkedin;
-
-  CONTACTS = [
+  teamMembers = [
     {
-      name: 'Mehul Bafna',
-      title: 'Events & PR Head',
-      email: 'mehul@ecell.in',
-      phone: '+919214247600',
-      image: 'https://2k21.s3.amazonaws.com/images/Bafna.jpeg',
-      linkedin: 'mehul-bafna-849390294',
+      name: 'Sunil Meena',
+      designation: 'Hospitality and PR head',
+      whatsapp: 'https://wa.me/919319401143',
+      linkedin: 'https://www.linkedin.com/in/sunil57/',
+      image: 'assets/Sunil.jpeg',
+      mail: 'mailto:user@sunil@ecell.in',
     },
-
     {
-      name: 'Prathmesh Walimbe',
-      title: 'Events & PR Head',
-      email: 'prathmesh@ecell.in',
-      phone: '+917083707680',
-      image: 'https://2k21.s3.amazonaws.com/images/Walimbe.jpeg',
-      linkedin: 'prathmeshwalimbe28',
+      name: 'Vaibhav Semwal',
+      designation: 'Operations Head',
+      whatsapp: 'https://wa.me/917065995990',
+      linkedin: 'https://www.linkedin.com/in/vaibhav-semwal-48aa50293/',
+      image: 'assets/Semwal.jpeg',
+      mail: 'mailto:user@vaibhavsemwal@ecell.in',
     },
-
-    //  {
-    //   name: 'Ved Patil',
-    //   title: 'Marketing Head',
-    //   email: 'ved@ecell.in',
-    //   phone: '+918459403210',
-    //   image: 'https://2k21.s3.amazonaws.com/images/Ved.jpeg',
-    //   linkedin: 'vedvpatil',
-    // },
-
     {
       name: 'Arnav Gautam',
-      title: 'Web & Tech Head',
-      email: 'arnavgautam@ecell.in',
-      phone: '+919414454858',
-      image: 'https://www.ecell.in/ca/img/arnav.png',
-      linkedin: 'arnav-gautam-570553289',
+      designation: 'Web and Tech Head',
+      image: 'assets/Arnav.jpeg',
+      whatsapp: 'https://wa.me/919414454858',
+      linkedin: 'https://www.linkedin.com/in/arnav-gautam-570553289/',
+      mail: 'mailto:user@arnavgautam@ecell.in',
     },
     {
-      name: 'Bhavesh Chandra',
-      title: 'Design Head',
-      email: 'bhaveshchandra@ecell.in',
-      phone: '+919347964686',
-      image: 'https://2k21.s3.amazonaws.com/images/bhavesh_p9c0kmo.png',
-      linkedin: 'bhavesh-chandra-kampa-133371286',
-    },
+      name: 'Bhavesh Kampa',
+      designation: 'Design Head',
+      image: 'assets/bhavesh.png',
+      whatsapp: 'https://wa.me/919347964686',
+      linkedin: 'https://www.linkedin.com/in/bhavesh-chandra-kampa-133371286/',
+      mail: 'mailto:user@bhavesh@ecell.in',
+    }
   ];
 }

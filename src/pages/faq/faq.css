@@ -1,7 +1,7 @@
 /* Page Layout Styles (matching other pages) */
 .about{
     background-color: #222222;
-    padding: 2.5rem 4rem;
+    padding: 0.5rem 4rem;
 }
 
 .heading{
@@ -17,49 +17,26 @@
 }
 
 
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background: #f8f9fa;
-}
-
-h1 {
-  font-family: "Gloria Hallelujah", cursive;
-  text-align: center;
-  font-size: 3em;
-  margin-bottom: 20px;
-  color: #2a2a2a;
-  text-shadow: 1px 1px #ccc;
-}
-
-p.description {
-  font-family: "Gloria Hallelujah", cursive;
-  text-align: center;
-  font-size: 1.2em;
-  max-width: 800px;
-  margin: 0 auto 40px auto;
-}
-
 /* Accordion Styles */
 .accordion-container {
-  max-width: 600px;
+  max-width: 70vw;
   margin: auto;
   border-radius: 8px;
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .accordion-item {
-  background: #fff;
+  background: transparent;
 }
 
 .accordion-header {
-  font-family: "Gloria Hallelujah", cursive;
+  font-family: "Lato", cursive;
   position: relative;
   width: 100%;
-  padding: 15px 20px;
+  padding: 20px 20px;
   margin-top: 30px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   background: #f7d794;
   border: none;
@@ -159,6 +136,7 @@ p.description {
     0 1px 3px rgba(0, 0, 0, 0.06);
   opacity: 1;
   transition: all 0.3s ease-in-out;
+  font-size: 1.4rem;
 }
 
 .accordion-header.active + .accordion-content .accordion-body {

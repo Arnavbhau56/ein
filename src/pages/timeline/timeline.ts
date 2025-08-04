@@ -26,14 +26,6 @@ ngAfterViewInit() {
     const plane = container.querySelector('#plane');
     const path = container.querySelector('#path');
 
-    console.log('🚀 Plane:', plane);
-    console.log('🛣️ Path:', path);
-
-    if (!plane || !path) {
-      console.error("❌ Plane or Path not found inside SVG!");
-      return;
-    }
-
     // Start plane at 180 deg and smaller scale
     gsap.set(plane, {
       rotation: 150,
