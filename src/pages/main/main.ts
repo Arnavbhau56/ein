@@ -7,12 +7,14 @@ import { TimelineComponent } from '../timeline/timeline';
 import { Structure } from '../structure/structure';
 import { Incentives } from "../incentives/incentives";
 import { Faq } from '../faq/faq';
+import { Guideline } from '../guideline/guideline';
+import { Contact } from '../contact/contact';
 
 declare var VANTA: any;
 
 @Component({
   selector: 'app-main',
-  imports: [CommonModule, About, TimelineComponent, Structure, Incentives, Faq],
+  imports: [CommonModule, About, TimelineComponent, Structure, Incentives, Faq, Guideline, Contact],
   templateUrl: './main.html',
   styleUrl: './main.css'
 })

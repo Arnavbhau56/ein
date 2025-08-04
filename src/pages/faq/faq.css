@@ -1,0 +1,243 @@
+/* Page Layout Styles (matching other pages) */
+.about{
+    background-color: #222222;
+    padding: 2.5rem 4rem;
+}
+
+.heading{
+    font-family: 'Poppins';
+    color: #fff;
+    font-weight: bolder;
+    font-size: 2vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    display: inline;
+    border-style: dashed;
+    border-radius: 15px;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+h1 {
+  font-family: "Gloria Hallelujah", cursive;
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #2a2a2a;
+  text-shadow: 1px 1px #ccc;
+}
+
+p.description {
+  font-family: "Gloria Hallelujah", cursive;
+  text-align: center;
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+/* Accordion Styles */
+.accordion-container {
+  max-width: 600px;
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.accordion-item {
+  background: #fff;
+}
+
+.accordion-header {
+  font-family: "Gloria Hallelujah", cursive;
+  position: relative;
+  width: 100%;
+  padding: 15px 20px;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #f7d794;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  color: #814329;
+}
+
+.accordion-header:before {
+  content: "";
+  transition: all 0.3s ease;
+  width: 91px;
+  height: 15px;
+  position: absolute;
+  right: 17px;
+  top: -14px;
+  background-color: #f7d794;
+  clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+}
+
+.accordion-header.active.accordion-header:before,
+.accordion-header:hover.active.accordion-header:before {
+  background-color: #f19066;
+  width: 120px;
+}
+
+.accordion-header:hover.accordion-header:before {
+  background-color: #f6b93b;
+  width: 120px;
+}
+
+.accordion-header:hover {
+  background: #f6b93b;
+}
+
+.accordion-header.active {
+  background: #f19066 !important;
+  color: #ffffff !important;
+  border-radius: 10px 10px 0 0;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1),
+    0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  transition: transform 0.3s ease;
+  color: #333;
+  font-size: 14px;
+}
+
+.accordion-header.active .icon {
+  transform: rotate(180deg);
+  color: #ffffff;
+}
+
+.accordion-content {
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.05);
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #fff8e1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+}
+
+.accordion-body {
+  font-family: "Patrick Hand", cursive;
+  background-color: white;
+  margin: 10px 10px -10px 10px;
+  padding: 6px 8px 50px 8px;
+  border-radius: 10px;
+  transform: rotate(-0.5deg);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #c8d6e53d 0px,
+    #c8d6e54f 1px,
+    transparent 1px,
+    transparent 28px
+  );
+  background-size: 100% 25px;
+  background-position: left top;
+  background-repeat: repeat;
+  box-shadow: 
+    0 1px 0 rgba(0, 0, 0, 0.05), 
+    3px 3px 0 #f1f1f1,
+    6px 6px 0 #e3e3e3,
+    9px 9px 0 #d6d6d6,
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.06);
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-header.active + .accordion-content .accordion-body {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) rotate(-2deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) rotate(2deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(5px) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.accordion-content p {
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+  line-height: 22px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .accordion-header {
+    font-size: 15px;
+    padding: 12px 16px;
+  }
+
+  .accordion-content {
+    padding: 0 16px;
+  }
+}
+
+.badge-sticky {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: background-color 0.3s ease;
+  animation: popBounce 1.2s ease forwards;
+}
+
+@keyframes popBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.15);
+  }
+  80% {
+    transform: translateX(-50%) scale(0.95);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.badge-sticky:hover {
+  background-color: #555;
+}
