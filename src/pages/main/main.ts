@@ -112,7 +112,7 @@ export class Main implements OnInit, OnDestroy {
   private handleVantaResize() {
     const viewportWidth = window.innerWidth;
     
-    if (viewportWidth < 850) {
+    if (viewportWidth < 150) {
       // Remove Vanta.js if viewport width is less than 850px
       if (this.vantaEffect) {
         this.vantaEffect.destroy();
@@ -132,13 +132,13 @@ export class Main implements OnInit, OnDestroy {
         el: "#vanta-globe",
         mouseControls: true,
         touchControls: true,
-        gyroControls: false,
+        gyroControls: true,
         minHeight: 200.00,
         minWidth: 200.00,
         scale: 1.0,
         scaleMobile: 1.00,
         color: 0xff7b28,
-        size: 1.00,
+        size: 0.85,
         backgroundColor: 0x222222
       });
     }
