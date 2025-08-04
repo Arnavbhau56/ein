@@ -23,3 +23,31 @@
     overflow: visible;
     filter: invert(1);
 }
+
+@media (max-width: 1000px) {
+.about{
+    padding: 2rem 2rem;
+}
+
+.heading{
+    font-size: 3vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+}
+}
+
+@media (max-width: 768px) {
+.about{
+    padding: 1rem 1rem;
+}
+
+.heading{
+    font-size: 4vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+}
+}

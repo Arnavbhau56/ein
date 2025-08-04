@@ -157,6 +157,7 @@
     font-size: 0.9rem;
   }
 }
+
 @media (max-width: 800px) {
   .nav-links {
     position: fixed;
@@ -219,38 +220,72 @@
 
 .main-apply {
   font-family: 'Lato';
-  width: 220px;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 2rem;
-  border: 3pxx solid white;
+  width: 15vw;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 2.4vw;
+  border: 3px solid white;
   transition: all 0.2s ease;
   will-change: transform, background-color, color, border-color;
 }
 
 .main-apply:hover{
   color : var(--primary-green);
-  border: 1.5px solid var(--primary-green);
+  border: 3px solid var(--primary-green);
   background-color: #fff;
   transform: translateY(-2px);
 }
 
 @media (max-width: 900px) {
-  .main-desc {
-    max-width: 90vw;
-  }
+
+.main-content {
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 500px) {
-  .main-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.2;
-  }
-  .main-desc {
-    font-size: 0.95rem;
-  }
+.btns{
+  gap: 4rem;
+}
+
+.main-logo {
+  width: 60vw;
+  margin-bottom: 1rem;
+}
+
+.main-apply {
+  font-family: 'Lato';
+  width: 24vw;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 3.5vw;
+  border: 3px solid white;
+}
+}
+
+@media (max-width: 768px) {
+
+.btns{
+  gap: 3rem;
+}
+
+.main-logo {
+  width: 80vw;
+  margin-bottom: 1rem;
+}
+
+.main-apply {
+  font-family: 'Lato';
+  width: 24vw;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 3.5vw;
+  border: 2px solid white;
+}
 }
 
 

@@ -4,7 +4,7 @@
 :root {
   --primary-green: #FEBBA0;
   --Nhexa: 5;
-  --gap: 2vw;
+  --gap: 1vw;
   --size: calc(calc(100vw / var(--Nhexa)) - var(--gap));
 }
 
