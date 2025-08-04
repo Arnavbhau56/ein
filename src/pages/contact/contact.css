@@ -28,7 +28,7 @@
 
 .profile-card {
   cursor: pointer;
-  width: 220px;
+  width: 18vw;
   height: 140px;
   background: transparent;
   padding: 20px;
@@ -114,6 +114,11 @@
 }
 
 @media (max-width: 1000px) {
+
+  .profile-card {
+    width: 220px;
+  }
+
 .about{
     padding: 2rem 2rem;
 }

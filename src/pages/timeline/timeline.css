@@ -24,6 +24,18 @@
     filter: invert(1);
 }
 
+@media (max-width: 760px) and (min-width: 481px) {
+    .timeline-section {
+        max-width: 90vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-section {
+        max-width: 95vw;
+    }
+}
+
 @media (max-width: 1000px) {
 .about{
     padding: 2rem 2rem;

@@ -127,6 +127,11 @@
     </div>
 
     <div class="input-group">
+      <label for="cbseRegNumber">CBSE Registration Number <span class="star">*</span></label>
+      <input type="text" id="cbseRegNumber" [(ngModel)]="formData.cbse_reg_number" name="cbseRegNumber" required (ngModelChange)="onFormDataChange()" />
+    </div>
+
+    <div class="input-group">
       <label for="reference">Reference <span class="star">*</span></label>
       <select id="reference" [(ngModel)]="formData.reference" name="reference" required (change)="onReferenceChange()" (ngModelChange)="onFormDataChange()">
         <option value="">Select Reference</option>

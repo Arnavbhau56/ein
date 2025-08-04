@@ -35,6 +35,7 @@ export class Register implements OnInit {
     class_number: [],
     contact: '',
     alternate_contact: '',
+    cbse_reg_number: '',
     reference: '',
     referral_id: '',
     referral_id_2: ''
@@ -239,6 +240,7 @@ export class Register implements OnInit {
       { key: 'school_nation', label: 'School Country' },
       { key: 'school_address', label: 'School Address' },
       { key: 'contact', label: 'Contact' },
+      { key: 'cbse_reg_number', label: 'CBSE Registration Number' },
       { key: 'reference', label: 'Reference' }
     ];
 
