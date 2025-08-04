@@ -288,4 +288,26 @@
 }
 }
 
+@media (max-width: 480px) {
+
+.btns{
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.main-logo {
+  margin-top: 4rem;
+  width: 95vw;
+  margin-bottom: 1rem;
+}
+
+.main-apply {
+  font-family: 'Lato';
+  width: 45vw;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 5vw;
+  border: 2px solid white;
+}
+}
 

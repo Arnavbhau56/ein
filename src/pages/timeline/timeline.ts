@@ -25,11 +25,21 @@ ngAfterViewInit() {
 
     // Set specific width and height for the SVG
     const svg = container.querySelector('svg');
-    if (svg) {
-      svg.setAttribute('width', '100%');
-      svg.setAttribute('height', 'auto');
-      svg.style.maxWidth = '85vw';
-    }
+if (svg) {
+  svg.setAttribute('width', '100%');
+  svg.setAttribute('height', 'auto');
+
+  const vw = window.innerWidth;
+
+  if (vw <= 480) {
+    svg.style.maxWidth = '95vw';
+  } else if (vw <= 760) {
+    svg.style.maxWidth = '90vw';
+  } else {
+    svg.style.maxWidth = '85vw';
+  }
+}
+
 
     const plane = container.querySelector('#plane');
     const path = container.querySelector('#path');

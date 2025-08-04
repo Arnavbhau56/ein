@@ -116,7 +116,7 @@
 @media (max-width: 1000px) {
 
   .profile-card {
-    width: 220px;
+    width: 240px;
   }
 
 .about{
@@ -152,19 +152,31 @@
   }
 }
 
-@media (max-width: 480px) {
-
-
-  .profile-card{
-    width: 310px;
-  }
-
-    .side-line {
-  display: none;
+@media (max-width: 768px) {
+.about{
+    padding: 1rem 1rem;
 }
 
-  .gradient-title {
-    font-size: 3rem;
-    margin-bottom: 0;
-  }
+.heading{
+    font-size: 4vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+    margin-left: 0;
+}
+}
+
+@media (max-width: 480px) {
+.about{
+    padding: 0.5rem 0.5rem;
+}
+
+.heading{
+    font-size: 6vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+}
 }

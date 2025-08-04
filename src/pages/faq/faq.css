@@ -233,3 +233,31 @@
 .badge-sticky:hover {
   background-color: #555;
 }
+
+@media (max-width: 768px) {
+.about{
+    padding: 1rem 1rem;
+}
+
+.heading{
+    font-size: 4vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+}
+}
+
+@media (max-width: 480px) {
+.about{
+    padding: 0.5rem 0.5rem;
+}
+
+.heading{
+    font-size: 6vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+}
+}
