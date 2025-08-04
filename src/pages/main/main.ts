@@ -92,19 +92,37 @@ export class Main implements OnInit, OnDestroy {
   onResize() {
     if (isPlatformBrowser(this.platformId)) {
       this.isMobileView = window.innerWidth < 700;
+      this.handleVantaResize();
     }
   }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.isMobileView = window.innerWidth < 700;
-      this.initVantaGlobe();
+      this.handleVantaResize();
     }
   }
 
   ngOnDestroy() {
     if (this.vantaEffect) {
       this.vantaEffect.destroy();
+    }
+  }
+
+  private handleVantaResize() {
+    const viewportWidth = window.innerWidth;
+    
+    if (viewportWidth < 850) {
+      // Remove Vanta.js if viewport width is less than 850px
+      if (this.vantaEffect) {
+        this.vantaEffect.destroy();
+        this.vantaEffect = null;
+      }
+    } else {
+      // Initialize Vanta.js if viewport width is 850px or greater
+      if (!this.vantaEffect) {
+        this.initVantaGlobe();
+      }
     }
   }
 

@@ -3,7 +3,23 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   --primary-green: #FEBBA0;
+  --Nhexa: 5;
+  --gap: 2vw;
+  --size: calc(calc(100vw / var(--Nhexa)) - var(--gap));
 }
+
+@media only screen and (min-width: 1100px) {
+  :root {
+    --Nhexa: 5;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    --Nhexa: 2;
+  }
+}
+
 *{
     margin: 0;
     padding: 0;

@@ -23,6 +23,14 @@ ngAfterViewInit() {
     const container = this.el.nativeElement.querySelector('.timeline-section');
     container.innerHTML = svgContent;
 
+    // Set specific width and height for the SVG
+    const svg = container.querySelector('svg');
+    if (svg) {
+      svg.setAttribute('width', '100%');
+      svg.setAttribute('height', 'auto');
+      svg.style.maxWidth = '85vw';
+    }
+
     const plane = container.querySelector('#plane');
     const path = container.querySelector('#path');
 
