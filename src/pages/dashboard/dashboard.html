@@ -23,9 +23,12 @@
     <button (click)="fetchDashboardData()" class="retry-btn">Retry</button>
   </div>
 
+  <div class="instructions">
+  <app-instructions></app-instructions>
+  </div>
+
   <!-- Dashboard Content -->
   <div *ngIf="!isLoading && !error" class="dashboard-content">
-
     <!-- Main Dashboard Layout -->
     <div class="dashboard-layout">
       <!-- Left Section (65%) -->
@@ -36,9 +39,9 @@
             <h2 class="box-title">Personal Details</h2>
             <div class="box-actions">
               <button class="btn update-btn" (click)="openUpdateModal()">Update Details</button>
-              <button class="btn template-btn" (click)="downloadTemplateCSV()">Template CSV</button>
+              <button class="btn template-btn" (click)="downloadTemplateCSV()">Template Students' CSV</button>
                              <label class="btn upload-btn" [class.disabled]="personalDetails?.csv_status === 'verified'" (click)="handleCSVUpload()">
-                 Upload CSV
+                 Upload Students' CSV
                  <input type="file" accept=".csv" (change)="uploadCSV($event)" style="display: none;" [disabled]="personalDetails?.csv_status === 'verified'">
                </label>
             </div>

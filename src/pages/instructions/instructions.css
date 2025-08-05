@@ -1,0 +1,188 @@
+.about{
+    padding: 2.5rem 4rem;
+    padding-top: 1rem;
+}
+
+.clr-box{
+    background-color: #313131;
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+strong{
+    color: #FEBBA0;
+}
+
+.box-wrapper {
+  background: linear-gradient(to right, #808080 0%, #000 50%, #808080 100%);
+  padding: 2px; 
+  border-radius: 22px; 
+  display: inline-block; 
+}
+
+.box {
+  background-color: #000;
+  padding: 1.5rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  border-radius: 20px;
+}
+
+.topic{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.topic_heading{
+    color: #FEBBA0;
+    font-family: 'Poppins';
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.topic_para{
+    color: #fff;
+    font-family: 'Lato';
+    line-height: 1.4;
+    font-size: 1.4vw;
+    font-weight: bold;
+}
+
+.topic_para ol{
+    gap: 0.8rem;
+}
+
+@media (max-width: 1000px) {
+
+.about{
+    padding: 2rem 2rem;
+}
+
+.clr-box{
+    padding: 0.4rem 0.5rem;
+    border-radius: 20px;
+    margin-top: 1.5rem;
+}
+
+.box-wrapper {
+  padding: 2px; 
+  border-radius: 20px; 
+  display: inline-block; 
+}
+
+.box {
+  padding: 1rem 1.5rem;
+  padding-left: 2rem;
+  gap: 1rem;
+  border-radius: 20px;
+}
+
+.topic{
+    gap: 0.2rem;
+}
+
+.topic_heading{
+    font-size: 2.2vw;
+}
+
+.topic_para{
+    font-size: 1.7vw;
+    font-weight: bold;
+    line-height: 1.5;
+}
+}
+
+@media (max-width: 768px) {
+.about{
+    padding: 1rem 1rem;
+}
+
+.heading{
+    font-size: 4vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+}
+
+.clr-box{
+    padding: 0.4rem 0.5rem;
+    border-radius: 20px;
+    margin-top: 1.5rem;
+}
+
+.box-wrapper {
+  padding: 2px; 
+  border-radius: 20px; 
+  display: inline-block; 
+}
+
+.box {
+  padding: 1rem 1.5rem;
+  padding-left: 2rem;
+  gap: 1rem;
+  border-radius: 20px;
+}
+
+.topic{
+    gap: 0.2rem;
+}
+
+.topic_heading{
+    font-size: 3.6vw;
+}
+
+.topic_para{
+    font-size: 2.6vw;
+    font-weight: bold;
+}
+}
+
+@media (max-width: 480px) {
+.about{
+    padding: 0.5rem 0.5rem;
+}
+
+.heading{
+    font-size: 6vw;
+    border: 1px solid white;
+    padding: 4px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+}
+
+.clr-box{
+    padding: 0.3rem 0.4rem;
+    border-radius: 20px;
+    margin-top: 1.5rem;
+}
+
+.box-wrapper {
+  padding: 2px; 
+  border-radius: 20px; 
+  display: inline-block; 
+}
+
+.box {
+  padding: 0.7rem 1rem;
+  gap: 1rem;
+  border-radius: 20px;
+}
+
+.topic{
+    gap: 0.2rem;
+}
+
+.topic_heading{
+    font-size: 4.4vw;
+}
+
+.topic_para{
+    font-size: 3.4vw;
+    font-weight: bold;
+    line-height: 1.2;
+}
+}

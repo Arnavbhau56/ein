@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import Swal from 'sweetalert2';
+import { Instructions } from '../instructions/instructions';
 
 interface PersonalDetails {
   poc_first_name: string;
@@ -26,7 +27,7 @@ interface UpdateItem {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Instructions],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })

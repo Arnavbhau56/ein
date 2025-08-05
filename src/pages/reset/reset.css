@@ -20,6 +20,10 @@
   z-index: 1;
 }
 
+.star{
+  color: red !important;
+}
+
 .reset-heading {
   font-family: 'Lato', 'Poppins', Arial, Helvetica, sans-serif;
   margin: 0 32px;
