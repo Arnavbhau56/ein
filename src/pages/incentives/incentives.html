@@ -2,140 +2,33 @@
     <div class="heading">Incentives</div>
 
     <div class="cards">
+        <!-- Loading State -->
+        <div *ngIf="loading" class="loading">
+            <p>Loading incentives...</p>
+        </div>
 
-        <div class="clr-card">
+        <!-- Error State -->
+        <div *ngIf="error" class="error">
+            <p>Failed to load incentives. Please try again later.</p>
+        </div>
+
+        <!-- Perks List -->
+        <div *ngFor="let perk of perks" class="clr-card">
             <div class="card-wrapper">
                 <div class="card">
-                        <div class="incentives-img">
-                            <img src="assets/incentive.png" alt="incentive" class="logo">
-                        </div>
+                    <div class="incentives-img">
+                        <img [src]="perk.image" [alt]="perk.title" class="logo">
+                    </div>
                     <div class="content">
                         <div class="title">
-                            Interview Prep Partner
+                            {{ perk.title }}
                         </div>
                         <div class="info">
-                            Mock interviews for top 10 Ambassadors and vouchers for all
+                            {{ perk.description }}
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
-        <div class="clr-card">
-            <div class="card-wrapper">
-                <div class="card">
-                        <div class="incentives-img">
-                            <img src="assets/incentive.png" alt="incentive" class="logo">
-                        </div>
-                    <div class="content">
-                        <div class="title">
-                            Interview Prep Partner
-                        </div>
-                        <div class="info">
-                            Mock interviews for top 10 Ambassadors and vouchers for all
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="clr-card">
-            <div class="card-wrapper">
-                <div class="card">
-                        <div class="incentives-img">
-                            <img src="assets/incentive.png" alt="incentive" class="logo">
-                        </div>
-                    <div class="content">
-                        <div class="title">
-                            Interview Prep Partner
-                        </div>
-                        <div class="info">
-                            Mock interviews for top 10 Ambassadors and vouchers for all
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="clr-card">
-            <div class="card-wrapper">
-                <div class="card">
-                        <div class="incentives-img">
-                            <img src="assets/incentive.png" alt="incentive" class="logo">
-                        </div>
-                    <div class="content">
-                        <div class="title">
-                            Interview Prep Partner
-                        </div>
-                        <div class="info">
-                            Mock interviews for top 10 Ambassadors and vouchers for all
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="clr-card">
-            <div class="card-wrapper">
-                <div class="card">
-                        <div class="incentives-img">
-                            <img src="assets/incentive.png" alt="incentive" class="logo">
-                        </div>
-                    <div class="content">
-                        <div class="title">
-                            Interview Prep Partner
-                        </div>
-                        <div class="info">
-                            Mock interviews for top 10 Ambassadors and vouchers for all
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="clr-card">
-            <div class="card-wrapper">
-                <div class="card">
-                        <div class="incentives-img">
-                            <img src="assets/incentive.png" alt="incentive" class="logo">
-                        </div>
-                    <div class="content">
-                        <div class="title">
-                            Interview Prep Partner
-                        </div>
-                        <div class="info">
-                            Mock interviews for top 10 Ambassadors and vouchers for all
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="clr-card">
-            <div class="card-wrapper">
-                <div class="card">
-                        <div class="incentives-img">
-                            <img src="assets/incentive.png" alt="incentive" class="logo">
-                        </div>
-                    <div class="content">
-                        <div class="title">
-                            Interview Prep Partner
-                        </div>
-                        <div class="info">
-                            Mock interviews for top 10 Ambassadors and vouchers for all
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
     </div>
-
 </div>

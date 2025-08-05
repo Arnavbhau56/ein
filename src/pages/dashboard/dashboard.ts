@@ -18,6 +18,10 @@ interface PersonalDetails {
   exam_date: string;
   csv_status: string;
   csv_issue?: string;
+  students_number?: number;
+  students_details?: {
+    [key: string]: number;
+  };
 }
 
 interface UpdateItem {
@@ -262,6 +266,19 @@ export class Dashboard implements OnInit {
       default:
         return status;
     }
+  }
+
+  getStudentClassData(): Array<{class: string, count: number}> {
+    if (!this.personalDetails?.students_details) {
+      return [];
+    }
+    
+    return Object.entries(this.personalDetails.students_details)
+      .map(([classNum, count]) => ({
+        class: classNum,
+        count: count
+      }))
+      .sort((a, b) => parseInt(a.class) - parseInt(b.class));
   }
 
   showSuccess(message: string) {

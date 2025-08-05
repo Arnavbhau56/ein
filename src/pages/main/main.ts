@@ -65,6 +65,9 @@ export class Main implements OnInit, OnDestroy {
   onNavLinkClick(link: any) {
     if (link.isButton) {
       this.onApplyNow();
+    } else if (link.label === 'BROCHURE') {
+      // Open ecell.in/seedstars in new tab
+      window.open('https://ecell.in/seedstars', '_blank', 'noopener,noreferrer');
     } else {
       this.scrollToSection(link.id === 'ABOUT' ? 'ABOUT US' : link.id);
       this.closeMenuOnNavClick();

@@ -23,10 +23,23 @@
     align-items: center;
 }
 
+.loading, .error {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  color: #fff;
+  font-family: 'Lato';
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
 .clr-card{
     background-color: #313131;
     padding: 0.5rem 0.4rem;
-    width: 250px;
+    width: 240px;
     border-radius: 20px;
     margin-top: 2rem;
     transition: all 2s !important;
@@ -111,57 +124,30 @@
     border-radius: 10px;
 }
 
-.cards{
-    margin-top: 2rem;
-    gap: 2rem;
-}
-
-.clr-card{
-    padding: 0.5rem 0.4rem;
-    width: 200px;
-    border-radius: 20px;
-    margin-top: 0rem;
+.clr-card {
+  width: 220px;
 }
 
 .card-wrapper {
-  padding: 1px; 
-  width: 198px;
-  border-radius: 20px; 
+  width: 218px;
 }
 
-.card {
-  padding: 0.4rem;
-  gap: 0.2rem;
-  border-radius: 20px;
+.incentives-img {
+  height: 200px;
 }
 
-.incentives-img{
-    border-radius: 20px;
-    height: 200px;
+.title {
+  font-size: 1.1rem;
 }
 
-.logo{
-    width: 90%;
-}
-
-.content{
-    padding: 0.4rem;
-}
-
-.title{
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-}
-
-.info{
-    line-height: 1.3;
-    font-size: 0.8rem;
+.info {
+  font-size: 0.8rem;
 }
 }
 
 @media (max-width: 768px) {
 .about{
-    padding: 1rem 1rem;
+    padding: 0rem 1rem;
 }
 
 .heading{
@@ -170,6 +156,26 @@
     padding: 4px 10px;
     border-style: dashed;
     border-radius: 10px;
+}
+
+.clr-card {
+  width: 200px;
+}
+
+.card-wrapper {
+  width: 198px;
+}
+
+.incentives-img {
+  height: 180px;
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.info {
+  font-size: 0.7rem;
 }
 }
 
@@ -184,6 +190,26 @@
     padding: 4px 10px;
     border-style: dashed;
     border-radius: 10px;
+}
+
+.clr-card {
+  width: 180px;
+}
+
+.card-wrapper {
+  width: 178px;
+}
+
+.incentives-img {
+  height: 160px;
+}
+
+.title {
+  font-size: 0.9rem;
+}
+
+.info {
+  font-size: 0.6rem;
 }
 }
 

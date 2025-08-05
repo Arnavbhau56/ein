@@ -3,7 +3,9 @@
   <nav class="navbar">
     <div class="navbar-content">
       <div class="navbar-left">
-        <img src="assets/logo.png" alt="Logo" class="logo" />
+        <a href="https://ecell.in" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logo.png" alt="Logo" class="logo" />
+        </a>
       </div>
       <div class="navbar-right">
         <button class="logout-btn" (click)="logout()">Logout</button>
@@ -112,44 +114,20 @@
               <span class="issue-text">{{ personalDetails.csv_issue }}</span>
             </div>
 
-            <!-- Student Counts (only if verified) -->
-            <div class="student-counts" *ngIf="personalDetails.csv_status === 'verified'">
-              <h3>Student Distribution</h3>
-              <div class="count-grid">
-                <div class="count-item">
-                  <label>Total Students:</label>
-                  <span class="count">0</span>
-                </div>
-                <div class="count-item">
-                  <label>Class 6:</label>
-                  <span class="count">0</span>
-                </div>
-                <div class="count-item">
-                  <label>Class 7:</label>
-                  <span class="count">0</span>
-                </div>
-                <div class="count-item">
-                  <label>Class 8:</label>
-                  <span class="count">0</span>
-                </div>
-                <div class="count-item">
-                  <label>Class 9:</label>
-                  <span class="count">0</span>
-                </div>
-                <div class="count-item">
-                  <label>Class 10:</label>
-                  <span class="count">0</span>
-                </div>
-                <div class="count-item">
-                  <label>Class 11:</label>
-                  <span class="count">0</span>
-                </div>
-                <div class="count-item">
-                  <label>Class 12:</label>
-                  <span class="count">0</span>
-                </div>
-              </div>
-            </div>
+                         <!-- Student Counts (only if verified) -->
+             <div class="student-counts" *ngIf="personalDetails.csv_status === 'verified'">
+               <h3>Student Distribution</h3>
+               <div class="count-grid">
+                 <div class="count-item">
+                   <label>Total Students:</label>
+                   <span class="count">{{ personalDetails.students_number || 0 }}</span>
+                 </div>
+                 <div class="count-item" *ngFor="let classData of getStudentClassData()">
+                   <label>Class {{ classData.class }}:</label>
+                   <span class="count">{{ classData.count }}</span>
+                 </div>
+               </div>
+             </div>
           </div>
         </div>
       </div>

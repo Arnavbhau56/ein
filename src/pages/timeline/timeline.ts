@@ -28,7 +28,6 @@ ngAfterViewInit() {
 if (svg) {
   svg.setAttribute('width', '100%');
   svg.setAttribute('height', 'auto');
-
   const vw = window.innerWidth;
 
   if (vw <= 480) {
