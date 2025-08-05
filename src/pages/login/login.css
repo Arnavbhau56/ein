@@ -1,8 +1,22 @@
 .login-container {
   background: #222;
+  background-image: url('../../../public/assets/background_full.png');
+  background-position: center;
+  background-repeat: repeat;
   padding: 1rem 0;
-  padding-bottom: 2rem;
-  min-height: 100vh;
+  padding-bottom: 4rem;
+  position: relative;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(34, 34, 34, 0.7);
+  z-index: 1;
 }
 
 .login-heading {
@@ -14,6 +28,7 @@
   color: var(--primary-green);
   z-index: 20;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .login-card {
@@ -37,7 +52,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  margin-bottom: 1.5rem;
 }
 
 .input-group {
@@ -81,10 +95,6 @@
   color: #e11d48;
 }
 
-.form-actions {
-  margin-top: 1rem;
-}
-
 .btn {
   padding: 0.7rem 2.2rem;
   background: var(--primary-green);
@@ -98,7 +108,7 @@
   transition: background 0.2s, box-shadow 0.2s;
   box-shadow: 0 2px 8px 0 #0cb30011;
   width: 100%;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
 }
 
 .login-btn {
@@ -138,7 +148,7 @@
 .divider {
   position: relative;
   text-align: center;
-  margin: 1.5rem 0;
+  margin: 0.5rem 0;
 }
 
 .divider::before {
@@ -181,13 +191,13 @@
   }
   
   .login-card {
-    padding: 1.2rem 0.5rem;
-    max-width: 98vw;
-    border-radius: 10px;
+    padding: 1.2rem 1rem;
+    max-width: 88vw;
+    border-radius: 14px;
   }
   
   .navigation-links {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 0.5rem;
     text-align: center;
   }
@@ -195,8 +205,8 @@
 
 @media (max-width: 400px) {
   .login-card {
-    padding: 0.5rem 0.4rem;
-    max-width: 87vw;
-    border-radius: 6px;
+    /* padding: 0.5rem 0.4rem; */
+    max-width: 80vw;
+    border-radius: 15px;
   }
 }

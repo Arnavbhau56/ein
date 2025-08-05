@@ -311,3 +311,21 @@
 }
 }
 
+.width{
+  background-image: url('../../../public/assets/background_full.png');
+  background-position: center;
+  background-repeat: repeat;
+  z-index: 10;
+  min-height: 100vh;
+  position: relative;
+  /* animation: oscillate 20s ease-in-out infinite; */
+}
+
+/* @keyframes oscillate {
+  0%, 100% {
+    background-position: center 0%;
+  }
+  50% {
+    background-position: center 5%;
+  }
+} */

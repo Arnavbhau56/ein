@@ -1,8 +1,23 @@
 .reset-container {
   background: #222;
+  background-image: url('../../../public/assets/background_full.png');
+  background-position: center;
+  background-repeat: repeat;
   padding: 1rem 0;
-  padding-bottom: 2rem;
-  min-height: 100vh;
+  min-height: 50vh;
+  padding-bottom: 4rem;
+  position: relative;
+}
+
+.reset-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(34, 34, 34, 0.7);
+  z-index: 1;
 }
 
 .reset-heading {
@@ -14,6 +29,7 @@
   color: var(--primary-green);
   z-index: 20;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .reset-card {
@@ -140,7 +156,6 @@
   transition: background 0.2s, box-shadow 0.2s;
   box-shadow: 0 2px 8px 0 #0cb30011;
   width: auto;
-  margin-top: 1.2rem;
 }
 
 .send-otp-btn {
@@ -214,28 +229,28 @@
   }
   
   .reset-card {
-    padding: 1.2rem 0.5rem;
-    max-width: 98vw;
-    border-radius: 10px;
+    padding: 1.2rem 1rem;
+    max-width: 88vw;
+    border-radius: 14px;
   }
   
   .otp-group .otp-boxes {
-    width: 90%;
-    gap: 0.1rem;
+    width: 70%;
+    gap: 0.4rem;
   }
   
   .otp-input {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 50px;
     font-size: 1rem;
   }
 }
 
 @media (max-width: 400px) {
   .reset-card {
-    padding: 0.5rem 0.4rem;
-    max-width: 87vw;
-    border-radius: 6px;
+    /* padding: 0.5rem 0.4rem; */
+    max-width: 80vw;
+    border-radius: 15px;
   }
   
   .otp-input {

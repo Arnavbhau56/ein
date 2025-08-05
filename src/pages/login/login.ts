@@ -25,6 +25,14 @@ export class Login implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    // Check if user is already logged in
+    const userEmail = localStorage.getItem('iento');
+    if (userEmail) {
+      // User is already logged in, redirect to dashboard
+      this.router.navigate(['/dashboard']);
+      return;
+    }
+    
     // Wait a bit for the Google script to load, then initialize
     setTimeout(() => {
       this.initializeGoogleSignIn();
@@ -34,7 +42,6 @@ export class Login implements OnInit {
   initializeGoogleSignIn() {
     // Check if Google script is loaded
     if (typeof google === 'undefined') {
-      console.warn('Google script not loaded yet, retrying...');
       setTimeout(() => {
         this.initializeGoogleSignIn();
       }, 500);
@@ -56,26 +63,23 @@ export class Login implements OnInit {
             { 
               theme: 'filled_blue', 
               size: 'large', 
-              shape: 'pill',
+              shape: 'rectangle',
               type: 'standard', 
               text: 'signin_with',
               width: 250
             }
           );
-          console.log('Google Sign-In button rendered successfully');
         } else {
-          console.error('Google login button element (#google-login-container) not found.');
+          // Google login button element not found
         }
-      } catch (error) {
-        console.error('Error initializing Google Sign-In:', error);
-        Swal.fire(
-          'Service Unavailable',
-          'Google Login is currently unavailable. Please try again later or contact support.',
-          'error'
-        );
-      }
+              } catch (error) {
+          Swal.fire(
+            'Service Unavailable',
+            'Google Login is currently unavailable. Please try again later or contact support.',
+            'error'
+          );
+        }
     } else {
-      console.error('Google Identity Services script not loaded or google.accounts.id is not available.');
       // Don't show error to user if Google is not configured
       if (environment.GOOGLE_CLIENT_ID && environment.GOOGLE_CLIENT_ID !== 'your-google-client-id-here') {
         Swal.fire(
@@ -107,8 +111,12 @@ export class Login implements OnInit {
       if (data.user && data.user.track) {
         localStorage.setItem('user_track', data.user.track);
       }
+      
+      // Save user email to localStorage for authentication
+      if (data.user && data.user.email) {
+        localStorage.setItem('iento', data.user.email);
+      }
 
-      console.log('Google login successful:', data);
       let navigationPath = '/dashboard'; // Default navigation path
 
       if (data.role === 'student') {
@@ -129,7 +137,6 @@ export class Login implements OnInit {
       this.router.navigate([navigationPath]);
     })
     .catch(err => {
-      console.error('Google login API call failed:', err);
       if (err.status === 404 ||
           (err.error && (typeof err.error.message === 'string' && err.error.message.toLowerCase().includes('user not found'))) ||
           (err.error && (typeof err.error.detail === 'string' && err.error.detail.toLowerCase().includes('user not found'))) ||
@@ -147,7 +154,6 @@ export class Login implements OnInit {
   }
 
   handleGoogleLoginFailure(error: any) {
-    console.error('Google Sign-In process failed:', error);
     let message = 'Google Sign-In failed. Please try again.';
     if (error) {
         if (error.type === 'popup_closed_by_user' || error.reason === 'popup_closed_by_user' || error.error === 'popup_closed') {
@@ -184,6 +190,9 @@ export class Login implements OnInit {
           localStorage.setItem('authToken', data.token);
         }
         
+        // Save user email to localStorage for authentication
+        localStorage.setItem('iento', this.loginData.email);
+        
         this.showSuccess('Login successful!');
         // Navigate to dashboard or home page
         this.router.navigate(['/dashboard']);
@@ -205,11 +214,14 @@ export class Login implements OnInit {
             }
           });
         } else {
-          this.showError(data.error || data.message || 'Login failed. Please check your credentials.');
+          // Extract error message from backend response
+          const errorMessage = data.error || data.message || data.detail || data.msg || 'Login failed. Please check your credentials.';
+          this.showError(errorMessage);
         }
       }
     } catch (error: any) {
-      this.showError('Network error. Please try again.');
+      const errorMessage = error.message || 'Network error. Please try again.';
+      this.showError(errorMessage);
     } finally {
       this.isLoading = false;
     }

@@ -30,6 +30,14 @@ export class Reset implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    // Check if user is already logged in
+    const userEmail = localStorage.getItem('iento');
+    if (userEmail) {
+      // User is already logged in, redirect to dashboard
+      this.router.navigate(['/dashboard']);
+      return;
+    }
+    
     this.restoreFormData();
   }
 
@@ -46,21 +54,26 @@ export class Reset implements OnInit {
     }
     
     try {
-      const response = await fetch(`${environment.BASE_URL}/send-otp/`, {
+      const response = await fetch(`${environment.BASE_URL}/send-otp-reset/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: this.resetData.email })
       });
       
-      if (!response.ok) {
-        throw new Error('Failed to send OTP.');
-      }
+      const data = await response.json();
       
-      this.otpSent = true;
-      this.startTimer();
-      this.showSuccess('OTP sent successfully! Check your email.');
+      if (response.ok) {
+        this.otpSent = true;
+        this.startTimer();
+        this.showSuccess('OTP sent successfully! Check your email.');
+      } else {
+        // Extract error message from backend response
+        const errorMessage = data.error || data.message || data.detail || data.msg || 'Failed to send OTP.';
+        this.showError(errorMessage);
+      }
     } catch (error: any) {
-      this.showError(error.message || 'Failed to send OTP.');
+      const errorMessage = error.message || 'Failed to send OTP.';
+      this.showError(errorMessage);
     }
   }
 
@@ -186,10 +199,13 @@ export class Reset implements OnInit {
         this.router.navigate(['/login']);
         localStorage.removeItem('resetFormData');
       } else {
-        this.showError(data.error || 'Password reset failed.');
+        // Extract error message from backend response
+        const errorMessage = data.error || data.message || data.detail || data.msg || 'Password reset failed.';
+        this.showError(errorMessage);
       }
     } catch (error: any) {
-      this.showError(error.message || 'Password reset failed.');
+      const errorMessage = error.message || 'Password reset failed.';
+      this.showError(errorMessage);
     }
   }
 

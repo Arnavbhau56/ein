@@ -100,6 +100,13 @@ export class Main implements OnInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       this.isMobileView = window.innerWidth < 700;
       this.handleVantaResize();
+      
+      // Check if user is already logged in
+      const userEmail = localStorage.getItem('iento');
+      if (userEmail) {
+        // User is logged in, redirect to dashboard
+        this.router.navigate(['/dashboard']);
+      }
     }
   }
 

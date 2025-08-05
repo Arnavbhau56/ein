@@ -2,31 +2,36 @@
     <div class="heading">
         FAQs
     </div>
-    <div class="accordion-container">
-        <div class="accordion-item">
+    
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Loading FAQs...</p>
+    </div>
+    
+    <!-- Error State -->
+    <div *ngIf="error && !isLoading" class="error-container">
+        <p>{{ error }}</p>
+        <button (click)="fetchFaqData()" class="retry-btn">Retry</button>
+    </div>
+    
+    <!-- FAQ Content -->
+    <div *ngIf="!isLoading && !error" class="accordion-container">
+        <div *ngFor="let item of faqItems; trackBy: trackByIndex" class="accordion-item">
             <button class="accordion-header">
-                What is Quantum Entanglement?
+                {{ item.title }}
                 <i class="fa-solid fa-chevron-down icon"></i>
             </button>
             <div class="accordion-content">
                 <div class="accordion-body">
-                    <p>Quantum Entanglement is a phenomenon where particles become interconnected so that the state of one instantly influences the state of another, regardless of the distance separating them. This challenges classical ideas of locality and causality.
-                    </p>
+                    <p>{{ item.description }}</p>
                 </div>
             </div>
         </div>
-
-        <div class="accordion-item">
-            <button class="accordion-header">
-                What does Nonlocality mean in quantum physics?
-                <i class="fa-solid fa-chevron-down icon"></i>
-            </button>
-            <div class="accordion-content">
-                <div class="accordion-body">
-                    <p>Nonlocality refers to the property that entangled particles exhibit correlations that cannot be explained by signals traveling at or below the speed of light, implying instantaneous connections across space. It defies classical notions of cause and effect limited by distance.
-                    </p>
-                </div>
-            </div>
+        
+        <!-- No FAQs available -->
+        <div *ngIf="faqItems.length === 0" class="no-faqs">
+            <p>No FAQs available at the moment.</p>
         </div>
     </div>
 </div>

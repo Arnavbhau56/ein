@@ -2,17 +2,33 @@
     <div class="heading">
         Guidelines
     </div>
-    <div class="clr-box">
+    
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Loading Guidelines...</p>
+    </div>
+    
+    <!-- Error State -->
+    <div *ngIf="error && !isLoading" class="error-container">
+        <p>{{ error }}</p>
+        <button (click)="fetchGuidelineData()" class="retry-btn">Retry</button>
+    </div>
+    
+    <!-- Guidelines Content -->
+    <div *ngIf="!isLoading && !error" class="clr-box">
         <div class="box-wrapper">
             <div class="box">
                 <div class="topic">
                     <div class="topic_para">
                         <ol class="guidelines">
-                            <li class="list">Guideline Number one</li>
-                            <li class="list">Guideline Number one</li>
-                            <li class="list">Guideline Number one</li>
-                            <li class="list">Guideline Number one</li>
+                            <li *ngFor="let item of guidelineItems; trackBy: trackByIndex" class="list" [innerHTML]="item.guideline"></li>
                         </ol>
+                        
+                        <!-- No guidelines available -->
+                        <div *ngIf="guidelineItems.length === 0" class="no-guidelines">
+                            <p>No guidelines available at the moment.</p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,4 @@
 <div class="reg">
-<div class="reg">
   <div class="register-heading">REGISTER</div>
   <div class="register-card">
   <!-- Progress Bar -->
@@ -127,7 +126,21 @@
     </div>
 
     <div class="input-group">
-      <label for="cbseRegNumber">CBSE Registration Number <span class="star">*</span></label>
+      <label for="board">Board <span class="star">*</span></label>
+      <select id="board" [(ngModel)]="formData.board" name="board" required (ngModelChange)="onFormDataChange()">
+        <option value="">Select Board</option>
+        <option value="CBSE">CBSE</option>
+        <option value="CISCE">CISCE</option>
+        <option value="IB">IB</option>
+        <option value="NIOS">NIOS</option>
+        <option value="CIE">CIE</option>
+        <option value="State">State Board</option>
+        <option value="Others">Others</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="cbseRegNumber">Affiliation/Registration Number <span class="star">*</span></label>
       <input type="text" id="cbseRegNumber" [(ngModel)]="formData.cbse_reg_number" name="cbseRegNumber" required (ngModelChange)="onFormDataChange()" />
     </div>
 
@@ -155,6 +168,5 @@
       <button class="btn submit-btn" type="button" (click)="validatePage2()">Submit</button>
     </div>
   </form>
-</div>
 </div>
 </div>

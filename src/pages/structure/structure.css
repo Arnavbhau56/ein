@@ -1,5 +1,5 @@
 .about {
-  background-color: #222;
+  background-color: rgba(34, 34, 34, 0.8);
   padding: 2.5rem 4rem;
 }
 
@@ -15,114 +15,7 @@
   margin-bottom: 2rem;
 }
 
-/* Hexagonal Grid Layout */
-.hex-section {
-  margin: calc(var(--size) * .7) auto 0 auto;
-  /* width: calc(var(--size) * calc(var(--Nhexa) - 1)); */
-  display: grid;
-  grid-template-columns: repeat(var(--Nhexa), 1fr);
-  grid-gap: var(--gap);
-  margin-left: 6vw;
-}
 
-.hex-article {
-  background: #444;
-  width: var(--size);
-  height: calc(var(--size) / 1.1111111);
-  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-  margin-right: calc(var(--size) / 2);
-  color: #fff;
-  overflow: hidden;
-  position: relative;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.hex-article:nth-child(2n) {
-  margin: calc(var(--size) * -.5) calc(var(--size) * -.25) 0 calc(var(--size) * -.75);
-}
-
-.hex-article::before {
-  content: '';
-  float: left;
-  width: 25%;
-  height: 100%;
- background: linear-gradient(
-  to right,
-  #222222 26%,
-  #CCCCCC 50%,
-  #C8C8C8 54%,
-  #B3B3B3 75%,
-  #292929 88%,
-  #222222 100%
-);
-  clip-path: polygon(0% 0%, 100% 0%, 0% 50%, 100% 100%, 0% 100%);
-  shape-outside: polygon(0% 0%, 100% 0%, 0% 50%, 100% 100%, 0% 100%);
-}
-
-.hex-article:hover {
-  background: #666;
-  transform: scale(1.05);
-}
-
-.hex-icon {
-  font-size: 2.5rem;
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.hex-figure {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  max-width: 50%;
-  height: 100%;
-  font-size: calc(9 / var(--Nhexa) * 1vw);
-  line-height: 1;
-  color: #fff;
-  transition: .75s .05s;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-}
-
-.hex-figure h3 {
-  font-family: 'Lato';
-  font-size: 2.5vw;
-  font-weight: 700;
-  color: #FEBBA0;
-}
-
-.hex-heading{
-    background: linear-gradient(
-  90deg,
-  #222 0%,
-  #000000 50%,
-  #222 100%
-);
-}
-
-.hex-figure img{
-  margin-bottom: 1rem;
-  height: 45%;
-  width: 90%;
-}
-
-.hex-figure p {
-  font-family: 'Poppins';
-  font-size: 0.8vw;
-  opacity: 0.9;
-  line-height: 1.2;
-  width: 100%;
-}
 
 @media (max-width: 1000px) {
 .about{
@@ -137,34 +30,6 @@
     border-radius: 10px;
 }
   
-  .hex-figure p {
-    font-size: 1vw;
-  }
-
- .hex-figure img{
-  margin-bottom: 0.4rem;
-  height: 45%;
-  width: 90%;
-}
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hex-figure img{
-    display: none;
-  }
-
-  .hex-figure h3 {
-    font-size: 0.8rem !important;
-  }
-  
-  .hex-figure p {
-    font-size: 2vw;
-  }
-  
-  .hex-icon {
-    font-size: 2rem;
-  }
 }
 
 @media (max-width: 768px) {

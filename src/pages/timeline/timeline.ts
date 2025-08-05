@@ -81,7 +81,7 @@ if (svg) {
     .to(plane, {
       duration: 3.5,
       ease: "back.inOut",
-      scale: 1, // Scale up to full size
+      scale: 0.8, // Scale up to full size
       transformOrigin: "center"
     }, 0);
   });

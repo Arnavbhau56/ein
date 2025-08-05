@@ -1,5 +1,5 @@
 .about{
-    background-color: #222222;
+    background-color: rgba(34, 34, 34, 0.8);
     padding: 2.5rem 2rem;
 }
 
@@ -28,10 +28,10 @@
 
 .profile-card {
   cursor: pointer;
-  width: 18vw;
+  width: 18.5vw;
   height: 140px;
   background: transparent;
-  padding: 20px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   position: relative;
@@ -62,8 +62,8 @@
   }
 
   .left-image {
-    height: 5rem;
-    width: 5rem;
+    height: 7rem;
+    width: 5.5rem;
     border-radius: 8px;
   }
 
@@ -73,7 +73,7 @@
 
     .name {
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .designation {

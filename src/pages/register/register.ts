@@ -35,6 +35,7 @@ export class Register implements OnInit {
     class_number: [],
     contact: '',
     alternate_contact: '',
+    board: '',
     cbse_reg_number: '',
     reference: '',
     referral_id: '',
@@ -67,6 +68,14 @@ export class Register implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    // Check if user is already logged in
+    const userEmail = localStorage.getItem('iento');
+    if (userEmail) {
+      // User is already logged in, redirect to dashboard
+      this.router.navigate(['/dashboard']);
+      return;
+    }
+    
     this.restoreFormData();
   }
 
@@ -89,15 +98,20 @@ export class Register implements OnInit {
         body: JSON.stringify({ email: this.formData.email })
       });
       
-      if (!response.ok) {
-        throw new Error('Failed to send OTP.');
-      }
+      const data = await response.json();
       
-      this.otpSent = true;
-      this.startTimer();
-      this.showSuccess('OTP sent successfully! Check your email.');
+      if (response.ok) {
+        this.otpSent = true;
+        this.startTimer();
+        this.showSuccess('OTP sent successfully! Check your email.');
+      } else {
+        // Extract error message from backend response
+        const errorMessage = data.error || data.message || data.detail || data.msg || 'Failed to send OTP.';
+        this.showError(errorMessage);
+      }
     } catch (error: any) {
-      this.showError(error.message || 'Failed to send OTP.');
+      const errorMessage = error.message || 'Failed to send OTP.';
+      this.showError(errorMessage);
     }
   }
 
@@ -225,10 +239,13 @@ export class Register implements OnInit {
         this.currentPage = 2;
         this.saveFormData();
       } else {
-        this.showError(data.error || 'OTP verification failed.');
+        // Extract error message from backend response
+        const errorMessage = data.error || data.message || data.detail || data.msg || 'OTP verification failed.';
+        this.showError(errorMessage);
       }
     } catch (error: any) {
-      this.showError(error.message || 'OTP verification failed.');
+      const errorMessage = error.message || 'OTP verification failed.';
+      this.showError(errorMessage);
     }
   }
 
@@ -240,6 +257,7 @@ export class Register implements OnInit {
       { key: 'school_nation', label: 'School Country' },
       { key: 'school_address', label: 'School Address' },
       { key: 'contact', label: 'Contact' },
+      { key: 'board', label: 'Board' },
       { key: 'cbse_reg_number', label: 'CBSE Registration Number' },
       { key: 'reference', label: 'Reference' }
     ];
@@ -292,14 +310,19 @@ export class Register implements OnInit {
       const data = await response.json();
       
       if (response.ok) {
+        // Save user email to localStorage for authentication
+        localStorage.setItem('iento', this.formData.email);
         this.showSuccess('Registration successful!');
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
         localStorage.removeItem('registerFormData');
       } else {
-        this.showError(data.error || 'Registration failed.');
+        // Extract error message from backend response
+        const errorMessage = data.error || data.message || data.detail || data.msg || 'Registration failed.';
+        this.showError(errorMessage);
       }
     } catch (error: any) {
-      this.showError(error.message || 'Registration failed.');
+      const errorMessage = error.message || 'Registration failed.';
+      this.showError(errorMessage);
     }
   }
 
