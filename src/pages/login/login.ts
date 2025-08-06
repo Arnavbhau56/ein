@@ -104,31 +104,31 @@ export class Login implements OnInit {
     .then(data => {
       console.log('Google login response:', data); // Debug log
       
-      // Store authentication data
-      if (data.token) {
-        localStorage.setItem('authToken', data.token);
+      if (data.message && data.message.toLowerCase().includes('login successful')) {
+        // Store token if provided
+        if (data.token) {
+          localStorage.setItem('authToken', data.token);
+        }
+        
+        // Save user email to localStorage for authentication
+        if (data.email) {
+          localStorage.setItem('iento', data.email);
+          console.log('Stored email in localStorage:', data.email); // Debug log
+        }
+        
+        this.showSuccess('Google login successful!');
+        // Navigate to dashboard
+        console.log('Navigating to dashboard...'); // Debug log
+        this.router.navigate(['/dashboard']).then(() => {
+          console.log('Navigation completed'); // Debug log
+        }).catch(err => {
+          console.error('Navigation error:', err); // Debug log
+        });
+      } else {
+        // Handle error response
+        const errorMessage = data.error || data.message || data.detail || 'Google login failed. Please try again.';
+        this.showError(errorMessage);
       }
-      if (data.role) {
-        localStorage.setItem('user_role', data.role);
-      }
-      if (data.user && data.user.track) {
-        localStorage.setItem('user_track', data.user.track);
-      }
-      
-      // Save user email to localStorage for authentication
-      if (data.user && data.user.email) {
-        localStorage.setItem('iento', data.user.email);
-        console.log('Stored email in localStorage:', data.user.email); // Debug log
-      }
-
-      // Always navigate to dashboard for now (simplified logic)
-      this.showSuccess('Google login successful!');
-      console.log('Navigating to dashboard...'); // Debug log
-      this.router.navigate(['/dashboard']).then(() => {
-        console.log('Navigation completed'); // Debug log
-      }).catch(err => {
-        console.error('Navigation error:', err); // Debug log
-      });
     })
     .catch(err => {
       console.error('Google login error:', err); // Debug log
