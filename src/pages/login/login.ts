@@ -102,6 +102,9 @@ export class Login implements OnInit {
     })
     .then(response => response.json())
     .then(data => {
+      console.log('Google login response:', data); // Debug log
+      
+      // Store authentication data
       if (data.token) {
         localStorage.setItem('authToken', data.token);
       }
@@ -115,28 +118,21 @@ export class Login implements OnInit {
       // Save user email to localStorage for authentication
       if (data.user && data.user.email) {
         localStorage.setItem('iento', data.user.email);
+        console.log('Stored email in localStorage:', data.user.email); // Debug log
       }
 
-      let navigationPath = '/dashboard'; // Default navigation path
-
-      if (data.role === 'student') {
-        if (data.user && data.user.track) {
-          if (data.user.track.toLowerCase() === 'nurture') {
-            navigationPath = '/nurture';
-          } else if (data.user.track.toLowerCase() === 'enthusiast') {
-            navigationPath = '/enthusiast';
-          }
-        }
-      } else if (data.role === 'mentor') {
-        navigationPath = '/mentor';
-      } else if (data.role === 'school') {
-        navigationPath = '/school';
-      }
-
+      // Always navigate to dashboard for now (simplified logic)
       this.showSuccess('Google login successful!');
-      this.router.navigate([navigationPath]);
+      console.log('Navigating to dashboard...'); // Debug log
+      this.router.navigate(['/dashboard']).then(() => {
+        console.log('Navigation completed'); // Debug log
+      }).catch(err => {
+        console.error('Navigation error:', err); // Debug log
+      });
     })
     .catch(err => {
+      console.error('Google login error:', err); // Debug log
+      
       if (err.status === 404 ||
           (err.error && (typeof err.error.message === 'string' && err.error.message.toLowerCase().includes('user not found'))) ||
           (err.error && (typeof err.error.detail === 'string' && err.error.detail.toLowerCase().includes('user not found'))) ||
@@ -185,6 +181,8 @@ export class Login implements OnInit {
       const data = await response.json();
       
       if (response.ok) {
+        console.log('Regular login response:', data); // Debug log
+        
         // Store token if provided
         if (data.token) {
           localStorage.setItem('authToken', data.token);
@@ -192,10 +190,16 @@ export class Login implements OnInit {
         
         // Save user email to localStorage for authentication
         localStorage.setItem('iento', this.loginData.email);
+        console.log('Stored email in localStorage:', this.loginData.email); // Debug log
         
         this.showSuccess('Login successful!');
         // Navigate to dashboard or home page
-        this.router.navigate(['/dashboard']);
+        console.log('Navigating to dashboard...'); // Debug log
+        this.router.navigate(['/dashboard']).then(() => {
+          console.log('Navigation completed'); // Debug log
+        }).catch(err => {
+          console.error('Navigation error:', err); // Debug log
+        });
       } else {
         // Check for "User not found" message
         if (data.message && data.message.toLowerCase().includes('user not found')) {
@@ -220,6 +224,7 @@ export class Login implements OnInit {
         }
       }
     } catch (error: any) {
+      console.error('Login error:', error); // Debug log
       const errorMessage = error.message || 'Network error. Please try again.';
       this.showError(errorMessage);
     } finally {
