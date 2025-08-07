@@ -15,7 +15,7 @@ export class Contact {
       designation: 'Events and PR head',
       whatsapp: 'https://wa.me/917738447760',
       linkedin: 'https://www.linkedin.com/in/sunil57/',
-      image: 'assets/Mehul.jpeg',
+      image: 'assets/mehul.jpeg',
       mail: 'mailto:user@mehul@ecell.in',
     },
     {
@@ -23,7 +23,7 @@ export class Contact {
       designation: 'Events and PR Head',
       whatsapp: 'https://wa.me/917083707680',
       linkedin: 'https://www.linkedin.com/in/prathmeshwalimbe28/',
-      image: 'assets/Walimbe.jpeg',
+      image: 'assets/walimbe.jpeg',
       mail: 'mailto:user@prathmesh@ecell.in',
     },
     {

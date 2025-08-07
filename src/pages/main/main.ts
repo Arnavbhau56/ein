@@ -29,15 +29,23 @@ export class Main implements OnInit, OnDestroy {
     { label: 'IMPORTANT DATES', id: 'TIMELINE' },
     { label: 'FAQs', id: 'FAQ' },
     { label: 'CONTACT US', id: 'CONTACT' },
-    { label: 'REGISTER', id: 'APPLY', isButton: true }
+    { label: this.isLoggedIn ? 'DASHBOARD' : 'REGISTER', id: 'APPLY', isButton: true }
   ];
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}
 
+  get isLoggedIn(): boolean {
+    return !!localStorage.getItem('iento');
+  }
+
   onApplyNow() {
-    this.router.navigateByUrl('/register').then(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (this.isLoggedIn) {
+      this.router.navigateByUrl('/dashboard');
+    } else {
+      this.router.navigateByUrl('/register').then(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   }
 
   onApplyLogin() {
@@ -109,8 +117,11 @@ export class Main implements OnInit, OnDestroy {
       // Check if user is already logged in
       const userEmail = localStorage.getItem('iento');
       if (userEmail) {
-        // User is logged in, redirect to dashboard
-        this.router.navigate(['/dashboard']);
+        // Only redirect to dashboard if user is not already on main page
+        // This allows navigation from dashboard to main page to work
+        if (this.router.url !== '/') {
+          this.router.navigate(['/dashboard']);
+        }
       }
     }
   }

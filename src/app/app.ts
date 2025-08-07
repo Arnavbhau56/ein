@@ -28,7 +28,7 @@ export class App {
 
   private updateHeaderVisibility(url: string) {
     const showHeaderRoutes = ['/login', '/register', '/reset', '/dashboard'];
-    const navLinkRoutes = ['/login', '/register', '/reset'];
+    const navLinkRoutes = ['/', '/login', '/register', '/reset'];
     
     this.showHeader = showHeaderRoutes.some(route => url.startsWith(route));
     this.showLogout = url.startsWith('/dashboard');

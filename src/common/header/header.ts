@@ -1,5 +1,5 @@
 import { Component, Input, HostListener, Inject, PLATFORM_ID, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -26,6 +26,36 @@ export class Header implements OnInit {
     { label: 'REGISTER', id: 'APPLY', isButton: true }
   ];
 
+  get isLoggedIn(): boolean {
+    return !!localStorage.getItem('iento');
+  }
+
+  get isDashboard(): boolean {
+    return this.router.url.startsWith('/dashboard');
+  }
+
+  get isMainPage(): boolean {
+    return this.router.url === '/';
+  }
+
+  get computedNavLinks() {
+    if (!this.showNavLinks) {
+      return [];
+    }
+    if (this.isDashboard) {
+      return this.navLinks.filter(link => link.label !== 'REGISTER');
+    }
+    // On main page and logged in, replace REGISTER with DASHBOARD
+    if (this.isMainPage && this.isLoggedIn) {
+      return this.navLinks.map(link =>
+        link.label === 'REGISTER'
+          ? { ...link, label: 'DASHBOARD', id: 'DASHBOARD' }
+          : link
+      );
+    }
+    return this.navLinks;
+  }
+
   constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
@@ -36,18 +66,29 @@ export class Header implements OnInit {
   }
 
   onNavLinkClick(link: any) {
+    console.log('Click detected:', link.label);
     if (link.isButton) {
-      this.router.navigate(['/register']).then(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+      if (link.label === 'DASHBOARD') {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.router.navigate(['/register']).then(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
     } else if (link.label === 'BROCHURE') {
       window.open('https://ecell.in/seedstars', '_blank', 'noopener,noreferrer');
     } else {
+      const sectionId = link.id === 'ABOUT' ? 'ABOUT US' : link.id;
+      
       if (this.router.url === '/') {
-        setTimeout(() => this.scrollToSection(link.id === 'ABOUT' ? 'ABOUT US' : link.id), 100);
+        this.scrollToSection(sectionId);
       } else {
-        this.router.navigate(['/']).then(() => {
-          setTimeout(() => this.scrollToSection(link.id === 'ABOUT' ? 'ABOUT US' : link.id), 300);
+        // Navigate to main page first, then scroll
+        this.router.navigateByUrl('/').then(() => {
+          // Wait for navigation and DOM to be ready
+          setTimeout(() => {
+            this.scrollToSection(sectionId);
+          }, 300);
         });
       }
       this.closeMenuOnNavClick();
@@ -63,15 +104,34 @@ export class Header implements OnInit {
   scrollToSection(sectionId: string) {
     if (isPlatformBrowser(this.platformId)) {
       const navbar = document.querySelector('.navbar');
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const navbarHeight = navbar ? navbar.clientHeight : 0;
-        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: sectionTop - navbarHeight,
-          behavior: 'smooth'
-        });
-      }
+      let lastTop: number | null = null;
+      let attempts = 0;
+      const maxAttempts = 40; // 2s
+      const tryScroll = () => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          // First, use scrollIntoView for best browser support
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // After a short delay, adjust for navbar height
+          setTimeout(() => {
+            const navbarHeight = navbar ? navbar.clientHeight : 0;
+            const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+            const scrollTarget = sectionTop - navbarHeight - 5;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            if (maxScroll - scrollTarget < 30) {
+              window.scrollTo({ top: maxScroll, behavior: 'smooth' });
+            } else {
+              window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+            }
+          }, 200);
+          return;
+        }
+        attempts++;
+        if (attempts < maxAttempts) {
+          setTimeout(tryScroll, 50);
+        }
+      };
+      tryScroll();
     }
   }
 
@@ -106,5 +166,12 @@ export class Header implements OnInit {
     localStorage.removeItem('iento');
     this.closeMenu();
     this.router.navigate(['/']);
+  }
+
+  goToDashboard(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.router.navigate(['/dashboard']);
+    this.closeMenu();
   }
 }

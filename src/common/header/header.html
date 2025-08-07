@@ -7,8 +7,9 @@
     </div>
     <div class="navbar-right" [class.open]="menuOpen">
       <ul class="nav-links" [class.mobile]="isMobileView" [class.open]="menuOpen">
-        <li *ngFor="let link of navLinks" (click)="closeMenuOnNavClick()">
-          <a href="#{{link.id}}" [ngClass]="{'apply-btn': link.isButton}" (click)="onNavLinkClick(link); $event.preventDefault();">{{link.label}}</a>
+        <li *ngFor="let link of computedNavLinks" (click)="closeMenuOnNavClick()">
+          <a *ngIf="link.label !== 'DASHBOARD'" href="#{{link.id}}" [ngClass]="{'apply-btn': link.isButton}" (click)="onNavLinkClick(link); $event.preventDefault();">{{link.label}}</a>
+          <a *ngIf="link.label === 'DASHBOARD'" href="#" class="apply-btn" (click)="goToDashboard($event)">DASHBOARD</a>
         </li>
         <li *ngIf="showLogout">
           <a href="#" class="apply-btn logout-btn" (click)="logout($event)">LOGOUT</a>

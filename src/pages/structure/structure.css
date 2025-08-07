@@ -73,7 +73,7 @@
 }
 
 .flip-card-front {
-  background: linear-gradient(45deg, #808080 0%, #000 30%, #000 70%, #808080 100%);
+  background: #555555;
   padding: 1px;
   display: flex;
   flex-direction: column;
