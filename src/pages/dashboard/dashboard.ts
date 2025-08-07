@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import Swal from 'sweetalert2';
 import { Instructions } from '../instructions/instructions';
+import { Header } from '../../common/header/header';
 
 interface PersonalDetails {
   poc_first_name: string;
@@ -31,7 +32,7 @@ interface UpdateItem {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, FormsModule, Instructions],
+  imports: [CommonModule, FormsModule, Instructions, Header],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
@@ -225,16 +226,7 @@ export class Dashboard implements OnInit {
     window.open('https://docs.google.com/spreadsheets/d/1jdOcFhi1qCQwJeREQ8a36BmRptCOnO1EK-BrbUY77hc/edit?gid=0#gid=0', '_blank');
   }
 
-  logout() {
-    // Clear all stored authentication data
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user_role');
-    localStorage.removeItem('user_track');
-    localStorage.removeItem('iento');
-    
-    // Navigate back to login
-    this.router.navigate(['/login']);
-  }
+
 
   showError(message: string) {
     Swal.fire({

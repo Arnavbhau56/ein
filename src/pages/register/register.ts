@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import Swal from 'sweetalert2';
+import { Header } from '../../common/header/header';
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Header],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })

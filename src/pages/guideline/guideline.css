@@ -163,6 +163,7 @@
 @media (max-width: 480px) {
 .about{
     padding: 0.5rem 0.5rem;
+    padding-bottom: 2rem;
 }
 
 .heading{
@@ -187,6 +188,7 @@
 
 .box {
   padding: 0.7rem 1.4rem;
+  padding-left: 1.8rem;
   gap: 1rem;
   border-radius: 20px;
 }

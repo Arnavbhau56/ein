@@ -33,6 +33,8 @@
 /* Removed old background styles - using Vanta.js globe instead */
 
 
+
+
 /* NAVBAR */
 .navbar {
   position: fixed;
@@ -64,7 +66,7 @@
 }
 
 .logo {
-  height: 40px;
+  height: 50px;
   transition: filter 0.3s;
   filter: invert(1);
 }
@@ -100,7 +102,7 @@
   color: #111;
 }
 .apply-btn {
-  background: var(--primary-green);
+  background: #f19066;
   color: #fff;
   border: 1.5px solid white;
   padding: 0.6rem 1rem;
@@ -135,9 +137,9 @@
 .hamburger span {
   display: block;
   height: 4px;
-  width: 100%;
+  width: 70%;
   background: #4b5563;
-  margin: 4px 0;
+  margin: 2px 0;
   border-radius: 2px;
   transition: 0.3s;
 }
@@ -172,8 +174,8 @@
     width: 70vw;
     background: #fff;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 5rem 2rem 2rem 2rem;
+    align-items: center;
+    padding: 5rem 2rem 2rem 0rem;
     transform: translateX(100%);
     transition: transform 0.3s;
     z-index: 15;
@@ -211,6 +213,7 @@
   text-align: center;
   gap: 1.4rem;
   padding-left: 7.5rem;
+  padding-top: 30px; /* Account for fixed navbar */
 }
 
 .btns{
@@ -246,6 +249,7 @@
 
 .main-content {
   padding: 0;
+  padding-top: 10px;
   height: 100vh;
   width: 100vw;
   display: flex;

@@ -9,7 +9,6 @@ import { Incentives } from "../incentives/incentives";
 import { Faq } from '../faq/faq';
 import { Guideline } from '../guideline/guideline';
 import { Contact } from '../contact/contact';
-
 declare var VANTA: any;
 
 @Component({
@@ -36,11 +35,15 @@ export class Main implements OnInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}
 
   onApplyNow() {
-    this.router.navigateByUrl('/register');
+    this.router.navigateByUrl('/register').then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   onApplyLogin() {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login').then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   scrollToSection(sectionId: string) {
@@ -66,7 +69,6 @@ export class Main implements OnInit, OnDestroy {
     if (link.isButton) {
       this.onApplyNow();
     } else if (link.label === 'BROCHURE') {
-      // Open ecell.in/seedstars in new tab
       window.open('https://ecell.in/seedstars', '_blank', 'noopener,noreferrer');
     } else {
       this.scrollToSection(link.id === 'ABOUT' ? 'ABOUT US' : link.id);

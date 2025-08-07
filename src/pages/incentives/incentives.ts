@@ -35,7 +35,6 @@ export class Incentives implements OnInit {
           this.loading = false;
         },
         error: (error) => {
-          console.error('Error fetching perks:', error);
           this.error = true;
           this.loading = false;
         }

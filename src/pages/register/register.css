@@ -10,6 +10,7 @@
     background-position: center;
     background-repeat: repeat;
     padding: 1rem 0;
+    padding-top: 80px;
     padding-bottom: 4rem;
     position: relative;
 }
@@ -465,6 +466,7 @@ body, .register-root {
     width: 30px;
     height: 50px;
     font-size: 1rem;
+    padding: 0 !important;
   }
   .checkbox-group {
     flex-direction: column;
@@ -474,7 +476,7 @@ body, .register-root {
   
   .checkbox-item {
     min-width: auto;
-    width: 100%;
+    width: calc(100% - 2rem);
     justify-content: flex-start;
     padding: 0.8rem 1rem;
   }
@@ -485,6 +487,9 @@ body, .register-root {
     /* padding: 0.5rem 0.4rem; */
     max-width: 80vw;
     border-radius: 15px;
+  }
+  .btn{
+    padding: 0.7rem 1rem;
   }
   .otp-input {
     width: 40px;

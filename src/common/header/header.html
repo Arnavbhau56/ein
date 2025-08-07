@@ -1,0 +1,24 @@
+<nav class="navbar" [class.scrolled]="scrolled">
+  <div class="navbar-content">
+    <div class="navbar-left">
+      <a href="https://ecell.in" target="_blank" rel="noopener noreferrer">
+        <img src="assets/logo.png" alt="Logo" class="logo" />
+      </a>
+    </div>
+    <div class="navbar-right" [class.open]="menuOpen">
+      <ul class="nav-links" [class.mobile]="isMobileView" [class.open]="menuOpen">
+        <li *ngFor="let link of navLinks" (click)="closeMenuOnNavClick()">
+          <a href="#{{link.id}}" [ngClass]="{'apply-btn': link.isButton}" (click)="onNavLinkClick(link); $event.preventDefault();">{{link.label}}</a>
+        </li>
+        <li *ngIf="showLogout">
+          <a href="#" class="apply-btn logout-btn" (click)="logout($event)">LOGOUT</a>
+        </li>
+      </ul>
+      <button class="hamburger" (click)="toggleMenu()" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'">
+        <span [class.open]="menuOpen"></span>
+        <span [class.open]="menuOpen"></span>
+        <span [class.open]="menuOpen"></span>
+      </button>
+    </div>
+  </div>
+</nav>
